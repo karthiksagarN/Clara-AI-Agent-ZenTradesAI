@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Retell Agent Spec",
+  "description": "Configuration spec for a Retell AI voice agent",
+  "type": "object",
+  "required": ["agent_name", "version", "system_prompt"],
+  "properties": {
+    "agent_name": {
+      "type": "string",
+      "description": "Display name of the agent (e.g., 'Clara - Ben's Electric')"
+    },
+    "version": {
+      "type": "string",
+      "enum": ["v1", "v2"],
+      "description": "Agent configuration version"
+    },
+    "voice_style": {
+      "type": "object",
+      "properties": {
+        "voice_id": {
+          "type": ["string", "null"],
+          "description": "Retell voice ID or name"
+        },
+        "style": {
+          "type": "string",
+          "description": "Voice style description (e.g., 'professional, warm, calm')"
+        },
+        "language": {
+          "type": "string",
+          "default": "en-US"
+        }
+      }
+    },
+    "system_prompt": {
+      "type": "string",
+      "description": "Full system prompt for the agent including all flows"
+    },
+    "key_variables": {
+      "type": "object",
+      "properties": {
+        "company_name": {"type": ["string", "null"]},
+        "timezone": {"type": ["string", "null"]},
+        "business_hours": {"type": ["string", "null"]},
+        "office_address": {"type": ["string", "null"]},
+        "emergency_contacts": {
+          "type": ["array", "null"],
+          "items": {"type": "string"}
+        }
+      },
+      "description": "Key variables injected into the agent"
+    },
+    "tool_invocations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string"},
+          "description": {"type": "string"},
+          "trigger": {"type": "string"},
+          "parameters": {"type": "object"}
+        }
+      },
+      "description": "Tool/function call placeholders (not visible to caller)"
+    },
+    "call_transfer_protocol": {
+      "type": "object",
+      "properties": {
+        "enabled": {"type": "boolean"},
+        "targets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {"type": "string"},
+              "phone": {"type": "string"},
+              "priority": {"type": "integer"},
+              "conditions": {"type": ["string", "null"]}
+            }
+          }
+        },
+        "timeout_seconds": {"type": ["integer", "null"]},
+        "max_retries": {"type": ["integer", "null"]}
+      },
+      "description": "Call transfer configuration"
+    },
+    "fallback_protocol": {
+      "type": "object",
+      "properties": {
+        "transfer_fail_message": {"type": "string"},
+        "transfer_fail_action": {"type": "string"},
+        "general_error_message": {"type": "string"}
+      },
+      "description": "What to do when transfers or operations fail"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "account_id": {"type": "string"},
+        "created_at": {"type": "string"},
+        "updated_at": {"type": ["string", "null"]},
+        "source": {"type": "string"}
+      }
+    }
+  }
+}

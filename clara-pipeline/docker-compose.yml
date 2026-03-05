@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: clara-n8n
+    ports:
+      - "${N8N_PORT:-5678}:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=${N8N_BASIC_AUTH_USER:-admin}
+      - N8N_BASIC_AUTH_PASSWORD=${N8N_BASIC_AUTH_PASSWORD:-changeme}
+      - GENERIC_TIMEZONE=America/New_York
+    volumes:
+      - ./n8n-data:/home/node/.n8n
+      - ./scripts:/home/node/scripts:ro
+      - ./prompts:/home/node/prompts:ro
+      - ./recordings:/home/node/recordings
+      - ./outputs:/home/node/outputs
+      - ./schemas:/home/node/schemas:ro
+      - ./changelog:/home/node/changelog
+    restart: unless-stopped
+    networks:
+      - clara-network
+
+  # Ollama runs natively on macOS for best M-chip performance
+  # If you prefer Docker (Linux/Windows):
+  # ollama:
+  #   image: ollama/ollama:latest
+  #   container_name: clara-ollama
+  #   ports:
+  #     - "11434:11434"
+  #   volumes:
+  #     - ollama-data:/root/.ollama
+  #   networks:
+  #     - clara-network
+
+networks:
+  clara-network:
+    driver: bridge
+
+# volumes:
+#   ollama-data:

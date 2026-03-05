@@ -1,0 +1,99 @@
+{
+  "name": "Clara Pipeline B - Onboarding to v2 Agent",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "trigger-2",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "command": "ls -1 /home/node/recordings/onboarding/*.txt /home/node/recordings/onboarding/*.m4a /home/node/recordings/onboarding/*.mp3 /home/node/recordings/onboarding/*.wav 2>/dev/null || echo 'NO_FILES'"
+      },
+      "id": "list-files-2",
+      "name": "List Onboarding Files",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [470, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const output = $input.first().json.stdout;\nif (output === 'NO_FILES') {\n  throw new Error('No onboarding files found in /recordings/onboarding/');\n}\nconst files = output.trim().split('\\n').filter(f => f.length > 0);\nreturn files.map(f => ({ json: { file_path: f, filename: f.split('/').pop() } }));"
+      },
+      "id": "split-files-2",
+      "name": "Split into Files",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [690, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Derive company name from filename for account matching\nconst filename = $json.filename;\nconst stem = filename.replace(/\\.[^.]+$/, '').replace(/_onboarding/i, '').replace(/-/g, ' ').replace(/_/g, ' ');\nconst company = stem.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');\nreturn [{ json: { ...$json, company_name: company } }];"
+      },
+      "id": "derive-company-2",
+      "name": "Derive Company Name",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [910, 300]
+    },
+    {
+      "parameters": {
+        "command": "cd /home/node/scripts && python3 run_pipeline_b.py '{{ $json.file_path }}' --company '{{ $json.company_name }}' --skip-transcription 2>&1"
+      },
+      "id": "run-pipeline-b",
+      "name": "Run Pipeline B",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1130, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const output = $input.first().json.stdout;\nconst lines = output.split('\\n');\nconst accountLine = lines.find(l => l.includes('Account ID:'));\nconst companyLine = lines.find(l => l.includes('Company:'));\nconst changesLine = lines.find(l => l.includes('Changes:'));\n\nreturn [{\n  json: {\n    status: 'success',\n    account_id: accountLine ? accountLine.split(':').slice(1).join(':').trim() : 'unknown',\n    company: companyLine ? companyLine.split(':').slice(1).join(':').trim() : 'unknown',\n    changes: changesLine ? changesLine.split(':').slice(1).join(':').trim() : '0',\n    raw_output: output\n  }\n}];"
+      },
+      "id": "parse-result-2",
+      "name": "Parse Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1350, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst success = items.filter(i => i.json.status === 'success').length;\nconst total = items.length;\nconst totalChanges = items.reduce((sum, i) => sum + parseInt(i.json.changes || 0), 0);\n\nreturn [{\n  json: {\n    summary: `Pipeline B Complete: ${success}/${total} onboarding calls processed, ${totalChanges} total changes`,\n    results: items.map(i => i.json)\n  }\n}];"
+      },
+      "id": "summary-2",
+      "name": "Generate Summary",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1570, 300]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [[{"node": "List Onboarding Files", "type": "main", "index": 0}]]
+    },
+    "List Onboarding Files": {
+      "main": [[{"node": "Split into Files", "type": "main", "index": 0}]]
+    },
+    "Split into Files": {
+      "main": [[{"node": "Derive Company Name", "type": "main", "index": 0}]]
+    },
+    "Derive Company Name": {
+      "main": [[{"node": "Run Pipeline B", "type": "main", "index": 0}]]
+    },
+    "Run Pipeline B": {
+      "main": [[{"node": "Parse Result", "type": "main", "index": 0}]]
+    },
+    "Parse Result": {
+      "main": [[{"node": "Generate Summary", "type": "main", "index": 0}]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": [
+    {"name": "clara-pipeline"}
+  ]
+}

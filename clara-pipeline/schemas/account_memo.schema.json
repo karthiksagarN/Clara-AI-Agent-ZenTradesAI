@@ -1,0 +1,141 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Clara Account Memo",
+  "description": "Structured account memo extracted from demo/onboarding calls",
+  "type": "object",
+  "required": ["account_id", "company_name"],
+  "properties": {
+    "account_id": {
+      "type": "string",
+      "description": "Unique identifier derived from company name"
+    },
+    "company_name": {
+      "type": "string",
+      "description": "Full company/business name"
+    },
+    "contact_name": {
+      "type": ["string", "null"],
+      "description": "Primary contact person name"
+    },
+    "contact_email": {
+      "type": ["string", "null"],
+      "description": "Primary contact email"
+    },
+    "contact_phone": {
+      "type": ["string", "null"],
+      "description": "Primary contact phone number"
+    },
+    "business_type": {
+      "type": ["string", "null"],
+      "description": "Type of trade business (electrical, fire protection, HVAC, etc.)"
+    },
+    "business_hours": {
+      "type": ["object", "null"],
+      "properties": {
+        "days": {
+          "type": ["string", "null"],
+          "description": "Operating days (e.g., 'Monday-Friday')"
+        },
+        "start": {
+          "type": ["string", "null"],
+          "description": "Start time (e.g., '8:00 AM')"
+        },
+        "end": {
+          "type": ["string", "null"],
+          "description": "End time (e.g., '5:00 PM')"
+        },
+        "timezone": {
+          "type": ["string", "null"],
+          "description": "Timezone (e.g., 'Eastern', 'America/New_York')"
+        }
+      }
+    },
+    "office_address": {
+      "type": ["string", "null"],
+      "description": "Office/business address"
+    },
+    "services_supported": {
+      "type": ["array", "null"],
+      "items": {"type": "string"},
+      "description": "List of services the company provides"
+    },
+    "emergency_definition": {
+      "type": ["array", "null"],
+      "items": {"type": "string"},
+      "description": "What constitutes an emergency (triggers/conditions)"
+    },
+    "emergency_routing_rules": {
+      "type": ["object", "null"],
+      "properties": {
+        "primary_contact": {"type": ["string", "null"]},
+        "primary_phone": {"type": ["string", "null"]},
+        "secondary_contact": {"type": ["string", "null"]},
+        "secondary_phone": {"type": ["string", "null"]},
+        "fallback_action": {"type": ["string", "null"]},
+        "escalation_order": {
+          "type": ["array", "null"],
+          "items": {"type": "string"}
+        }
+      },
+      "description": "Who to contact for emergencies, in what order"
+    },
+    "non_emergency_routing_rules": {
+      "type": ["object", "null"],
+      "properties": {
+        "action": {"type": ["string", "null"]},
+        "route_to": {"type": ["string", "null"]},
+        "message": {"type": ["string", "null"]}
+      },
+      "description": "How to handle non-emergency calls"
+    },
+    "call_transfer_rules": {
+      "type": ["object", "null"],
+      "properties": {
+        "timeout_seconds": {"type": ["integer", "null"]},
+        "max_retries": {"type": ["integer", "null"]},
+        "failure_message": {"type": ["string", "null"]},
+        "failure_action": {"type": ["string", "null"]}
+      },
+      "description": "Rules for transferring calls"
+    },
+    "integration_constraints": {
+      "type": ["array", "null"],
+      "items": {"type": "string"},
+      "description": "System integration rules and restrictions"
+    },
+    "after_hours_flow_summary": {
+      "type": ["string", "null"],
+      "description": "Summary of after-hours call handling"
+    },
+    "office_hours_flow_summary": {
+      "type": ["string", "null"],
+      "description": "Summary of business hours call handling"
+    },
+    "questions_or_unknowns": {
+      "type": ["array", "null"],
+      "items": {"type": "string"},
+      "description": "Missing information that needs clarification"
+    },
+    "notes": {
+      "type": ["string", "null"],
+      "description": "Additional notes from the call"
+    },
+    "version": {
+      "type": "string",
+      "enum": ["v1", "v2"],
+      "description": "Version of the memo"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "ISO timestamp of creation"
+    },
+    "updated_at": {
+      "type": ["string", "null"],
+      "description": "ISO timestamp of last update"
+    },
+    "source_transcript": {
+      "type": ["string", "null"],
+      "description": "Filename of source transcript"
+    }
+  }
+}

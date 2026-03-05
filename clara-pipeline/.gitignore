@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+env/
+
+# Environment
+.env
+
+# Audio/Video files (too large for git)
+recordings/**/*.m4a
+recordings/**/*.mp3
+recordings/**/*.wav
+recordings/**/*.mp4
+recordings/**/*.webm
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Database
+db/*.db
+
+# n8n data
+n8n-data/

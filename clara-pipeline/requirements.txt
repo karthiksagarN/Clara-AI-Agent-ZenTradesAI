@@ -1,0 +1,13 @@
+# Core dependencies
+requests>=2.31.0        # HTTP client for Ollama API
+openai-whisper>=20231117  # Local transcription
+python-dotenv>=1.0.0    # Environment variable loading
+jsonschema>=4.20.0      # JSON Schema validation
+
+# Utilities
+python-slugify>=8.0.0   # Slugify company names for account_id
+deepdiff>=6.7.0         # Deep JSON diffing for changelog
+jinja2>=3.1.2           # Template rendering for agent prompts
+
+# Optional
+rich>=13.7.0            # Pretty terminal output
