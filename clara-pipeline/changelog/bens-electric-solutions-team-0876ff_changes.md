@@ -1,55 +1,19 @@
-# Changelog: Ben's Electric Solutions
+# Changelog: Bens Electric Solutions Team
 
 **Account ID:** bens-electric-solutions-team-0876ff
 **Version:** v1 → v2
-**Date:** 2026-03-05 11:33:40
-**Total Changes:** 9
+**Total Changes:** 11
 
----
-
-## Modified Fields
-
-### `company_name`
-- **Old:** "Bens Electric Solutions Team"
-- **New:** "Ben's Electric Solutions"
-- **Reason:** confirmed during onboarding
-
-### `contact_info`
-- **Old:** {"name": "Ben Penoyer", "email": "Ben@BensElectricSolutionsTeam.com", "phone_number": "", "billing_address": ""}
-- **New:** null
-- **Reason:** updated_during_onboarding
-
-### `business_hours`
-- **Old:** null
-- **New:** null
-- **Reason:** updated_during_onboarding
-
-### `emergency_definition`
-- **Old:** null
-- **New:** "power loss, safety hazards, gas station pump failures, fire alarm issues"
-- **Reason:** defined during onboarding
-
-### `transfer_timeout`
-- **Old:** null
-- **New:** 30
-- **Reason:** confirmed during onboarding
-
-### `services`
-- **Old:** null
-- **New:** null
-- **Reason:** updated_during_onboarding
-
-## New Fields (Added from Onboarding)
-
-### `after_hours_message`
-- **Value:** "We're closed. Someone will call you back the next business day."
-- **Reason:** confirmed during onboarding
-
-### `emergency_after_hours_action`
-- **Value:** "try Ben first, then Cole, then take detailed message"
-- **Reason:** defined during onboarding
-
-### `transfer_timeout_message`
-- **Value:** "I'm sorry, I wasn't able to reach Ben directly. Let me take your information and I'll make sure he calls you back as soon as possible."
-- **Reason:** confirmed during onboarding
-
+| Field | Old Value | New Value | Reason |
+|-------|-----------|-----------|--------|
+| company_name | "Bens Electric Solutions Team" | "Ben's Electric Solutions" | onboarding_override |
+| contact_info | {"name":"Ben Penoyer","email":"Ben@BensElectricSolutionsTeam.com","phone_number":"","billing_address":""} | {"name":"Ben Penoyer","email":"Ben@BensElectricSolutionsTeam.com","phone_number":"403-975-1773"} | onboarding_override |
+| contract_details | {"plan":"Starter Plan","minutes":500,"duration":"3 months","price":"$249 x 3 = $750 + 5% GST in Canada"} | {"plan":"Custom Plan","minutes":null,"duration":null,"price":"$X + Y% GST in Canada"} | onboarding_override |
+| payment_info | {"card_number":"5526-1220-0052-4781","expiration_date":"03/29","CVV":"641"} | {"card_number":null,"expiration_date":null,"CVV":null} | onboarding_override |
+| next_steps | ["Sign DocuSign contract within the next 15 minutes","Schedule kickoff call for tomorrow at noon","Confirm kickoff call invite sent to Ben@BensElectricSolutionsTeam.com"] | ["Schedule kickoff call for tomorrow at noon","Confirm kickoff call invite sent to Ben@BensElectricSolutionsTeam.com"] | onboarding_override |
+| onboarding_process | {"kickoff_call":{"duration":"30 minutes","purpose":"Introductory call with onboarding specialist"},"onboarding_specialists":["",""]} | {"kickoff_call":{"duration":"30 minutes","purpose":"Introductory call with onboarding specialist"},"onboarding_specialists":["Priya"]} | onboarding_override |
+| account_id | "bens-electric-solutions-team-0876ff" | null | onboarding_override |
+| version | "v1" | "v2" | onboarding_override |
+| created_at | "2026-03-05T11:31:38.180701" | null | onboarding_override |
+| updated_at | null | "2026-03-05T11:31:38.180701" | onboarding_override |
+| source_transcript | "bens_electric_demo.txt" | "onsite_call_transcript.txt" | onboarding_override |

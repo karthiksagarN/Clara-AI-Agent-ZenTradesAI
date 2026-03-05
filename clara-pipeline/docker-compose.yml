@@ -11,6 +11,9 @@ services:
       - N8N_BASIC_AUTH_USER=${N8N_BASIC_AUTH_USER:-admin}
       - N8N_BASIC_AUTH_PASSWORD=${N8N_BASIC_AUTH_PASSWORD:-changeme}
       - GENERIC_TIMEZONE=America/New_York
+      - NODE_FUNCTION_ALLOW_BUILTIN=*
+      - NODE_FUNCTION_ALLOW_EXTERNAL=*
+      - N8N_RUNNERS_ENABLED=false
     volumes:
       - ./n8n-data:/home/node/.n8n
       - ./scripts:/home/node/scripts:ro

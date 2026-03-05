@@ -3,84 +3,131 @@
   "nodes": [
     {
       "parameters": {},
-      "id": "trigger-1",
+      "id": "a1-trigger",
       "name": "Manual Trigger",
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
-      "position": [250, 300]
+      "position": [240, 340]
     },
     {
       "parameters": {
-        "command": "ls -1 /home/node/recordings/demo/*.txt /home/node/recordings/demo/*.m4a /home/node/recordings/demo/*.mp3 /home/node/recordings/demo/*.wav 2>/dev/null || echo 'NO_FILES'"
+        "assignments": {
+          "assignments": [
+            {
+              "id": "transcript-path",
+              "name": "transcript_path",
+              "value": "/home/node/recordings/demo/bens_electric_demo.txt",
+              "type": "string"
+            },
+            {
+              "id": "ollama-url",
+              "name": "ollama_url",
+              "value": "http://host.docker.internal:11434",
+              "type": "string"
+            },
+            {
+              "id": "model-name",
+              "name": "model",
+              "value": "llama3.1:8b",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
       },
-      "id": "list-files-1",
-      "name": "List Demo Files",
-      "type": "n8n-nodes-base.executeCommand",
+      "id": "a1-config",
+      "name": "1. Configuration",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [460, 340]
+    },
+    {
+      "parameters": {
+        "jsCode": "const fs = require('fs');\nconst transcriptPath = $input.first().json.transcript_path;\n\nlet transcript;\ntry {\n  transcript = fs.readFileSync(transcriptPath, 'utf8');\n} catch (e) {\n  throw new Error(`Cannot read transcript at ${transcriptPath}: ${e.message}`);\n}\n\nreturn [{\n  json: {\n    ...$input.first().json,\n    transcript: transcript,\n    filename: transcriptPath.split('/').pop(),\n    char_count: transcript.length,\n    line_count: transcript.split('\\n').length\n  }\n}];"
+      },
+      "id": "a1-read",
+      "name": "2. Read Transcript",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 340]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Call Ollama API to extract structured memo from transcript\nconst http = require('http');\nconst data = $input.first().json;\n\nconst prompt = `You are a data extraction assistant. Extract structured account information from this demo/sales call transcript. Return ONLY a single valid JSON object with these fields:\n- company_name (string)\n- contact_name (string)\n- contact_role (string or null)\n- phone (string or null)\n- email (string or null)\n- industry (string)\n- company_size (string or null)\n- current_challenges (array of strings)\n- services_of_interest (array of strings)\n- budget_range (string or null)\n- timeline (string or null)\n- business_hours (object: {days, open, close})\n- call_handling_preferences (object)\n- special_instructions (array of strings)\n- questions_or_unknowns (array of strings)\n\nIMPORTANT: If a field is not mentioned, set to null. Do NOT guess.\n\nTranscript:\n${data.transcript.substring(0, 6000)}`;\n\nconst body = JSON.stringify({\n  model: data.model,\n  prompt: prompt,\n  stream: false,\n  options: { temperature: 0.1 }\n});\n\n// Parse URL manually (URL class not available in n8n sandbox)\nconst urlParts = data.ollama_url.replace('http://', '').split(':');\nconst hostname = urlParts[0];\nconst port = urlParts[1] ? parseInt(urlParts[1]) : 80;\n\nconst result = await new Promise((resolve, reject) => {\n  const req = http.request({\n    hostname: hostname,\n    port: port,\n    path: '/api/generate',\n    method: 'POST',\n    headers: { 'Content-Type': 'application/json' },\n    timeout: 120000\n  }, (res) => {\n    let responseData = '';\n    res.on('data', chunk => responseData += chunk);\n    res.on('end', () => {\n      try {\n        resolve(JSON.parse(responseData));\n      } catch (e) {\n        reject(new Error('Failed to parse Ollama response: ' + responseData.substring(0, 500)));\n      }\n    });\n  });\n  req.on('error', reject);\n  req.on('timeout', () => reject(new Error('Ollama request timed out')));\n  req.write(body);\n  req.end();\n});\n\nreturn [{ json: { ...data, ollama_response: result.response || '' } }];"
+      },
+      "id": "a1-ollama",
+      "name": "3. Ollama Extract Memo",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 340]
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $input.first().json;\nconst response = raw.ollama_response;\n\nlet memo;\ntry {\n  const jsonMatch = response.match(/\\{[\\s\\S]*\\}/);\n  if (jsonMatch) {\n    memo = JSON.parse(jsonMatch[0]);\n  } else {\n    throw new Error('No JSON found in Ollama response');\n  }\n} catch (e) {\n  return [{ json: { error: `Parse failed: ${e.message}`, raw_response: response.substring(0, 1000) } }];\n}\n\nconst crypto = require('crypto');\nconst slug = (memo.company_name || 'unknown').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');\nconst hash = crypto.createHash('md5').update(memo.company_name || 'unknown').digest('hex').substring(0, 6);\nconst account_id = `${slug}-${hash}`;\n\nconst required = ['company_name', 'contact_name', 'industry'];\nconst missing = required.filter(f => !memo[f]);\n\nreturn [{\n  json: {\n    account_id,\n    company_name: memo.company_name,\n    memo,\n    validation: missing.length === 0 ? 'PASSED' : `MISSING: ${missing.join(', ')}`,\n    fields_extracted: Object.keys(memo).length\n  }\n}];"
+      },
+      "id": "a1-parse",
+      "name": "4. Parse & Validate Memo",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 340]
+    },
+    {
+      "parameters": {
+        "jsCode": "const memo = $input.first().json.memo;\nconst account_id = $input.first().json.account_id;\n\nconst company = memo.company_name || 'Unknown Company';\nconst contact = memo.contact_name || 'the team';\nconst industry = memo.industry || 'general business';\nconst challenges = (memo.current_challenges || []).join(', ') || 'general inquiries';\nconst services = (memo.services_of_interest || []).join(', ') || 'our services';\n\nconst hours = memo.business_hours || {};\nconst bh = `${hours.days || 'Monday-Friday'}, ${hours.open || '9:00 AM'} - ${hours.close || '5:00 PM'}`;\n\nconst system_prompt = `You are Clara, an AI voice assistant for ${company}.\n\nCompany: ${company}\nIndustry: ${industry}\nPrimary Contact: ${contact}\nBusiness Hours: ${bh}\n\nKey Services: ${services}\nCustomer Challenges: ${challenges}\n\nDuring business hours:\n- Answer calls professionally for ${company}\n- Help with scheduling and service inquiries\n- Collect caller name, phone, and reason for calling\n- Transfer to ${contact} for complex issues\n\nOutside business hours:\n- Inform callers of business hours (${bh})\n- Offer to take a message\n- Handle emergencies per protocol\n\nCritical Rules:\n- Never fabricate information about ${company}\n- Always confirm before transferring calls\n- Be professional, friendly, and empathetic`;\n\nconst agent_spec = {\n  agent_name: `${company} - Clara AI`,\n  account_id,\n  version: 'v1',\n  system_prompt,\n  voice_style: { tone: 'professional and friendly', pace: 'moderate', personality: 'helpful assistant' },\n  source: 'demo_call'\n};\n\nreturn [{\n  json: {\n    account_id,\n    company_name: company,\n    memo,\n    agent_spec,\n    prompt_length: system_prompt.length\n  }\n}];"
+      },
+      "id": "a1-agent",
+      "name": "5. Generate Agent Spec",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1340, 340]
+    },
+    {
+      "parameters": {
+        "jsCode": "const fs = require('fs');\nconst path = require('path');\nconst data = $input.first().json;\nconst baseDir = `/home/node/outputs/accounts/${data.account_id}/v1`;\n\ntry {\n  fs.mkdirSync(baseDir, { recursive: true });\n  fs.writeFileSync(path.join(baseDir, 'memo.json'), JSON.stringify(data.memo, null, 2));\n  fs.writeFileSync(path.join(baseDir, 'agent_spec.json'), JSON.stringify(data.agent_spec, null, 2));\n\n  return [{\n    json: {\n      status: 'SUCCESS',\n      account_id: data.account_id,\n      company: data.company_name,\n      output_dir: baseDir,\n      files_saved: ['memo.json', 'agent_spec.json'],\n      message: `Pipeline A complete for ${data.company_name}`\n    }\n  }];\n} catch (e) {\n  return [{ json: { status: 'ERROR', error: e.message } }];\n}"
+      },
+      "id": "a1-save",
+      "name": "6. Save Outputs",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1560, 340]
+    },
+    {
+      "parameters": {
+        "content": "## Clara Pipeline A: Demo Call → v1 Agent\n\n**Flow:** Manual Trigger → Config → Read transcript → Ollama LLM extraction → Parse & validate → Generate Agent Spec → Save outputs\n\n**To run:** Edit \"1. Configuration\" node with your transcript path, then click Execute Workflow.\n\n**Ollama URL:** Uses `host.docker.internal` to reach Ollama running on your Mac.",
+        "height": 170,
+        "width": 550
+      },
+      "id": "a1-note",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
-      "position": [470, 300]
-    },
-    {
-      "parameters": {
-        "jsCode": "const output = $input.first().json.stdout;\nif (output === 'NO_FILES') {\n  throw new Error('No demo files found in /recordings/demo/');\n}\nconst files = output.trim().split('\\n').filter(f => f.length > 0);\nreturn files.map(f => ({ json: { file_path: f, filename: f.split('/').pop() } }));"
-      },
-      "id": "split-files-1",
-      "name": "Split into Files",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [690, 300]
-    },
-    {
-      "parameters": {
-        "command": "cd /home/node/scripts && python3 run_pipeline_a.py '{{ $json.file_path }}' --skip-transcription 2>&1"
-      },
-      "id": "run-pipeline-a",
-      "name": "Run Pipeline A",
-      "type": "n8n-nodes-base.executeCommand",
-      "typeVersion": 1,
-      "position": [910, 300]
-    },
-    {
-      "parameters": {
-        "jsCode": "const output = $input.first().json.stdout;\nconst lines = output.split('\\n');\nconst accountLine = lines.find(l => l.includes('Account ID:'));\nconst companyLine = lines.find(l => l.includes('Company:'));\nconst outputLine = lines.find(l => l.includes('Outputs:'));\n\nreturn [{\n  json: {\n    status: 'success',\n    account_id: accountLine ? accountLine.split(':').slice(1).join(':').trim() : 'unknown',\n    company: companyLine ? companyLine.split(':').slice(1).join(':').trim() : 'unknown',\n    output_dir: outputLine ? outputLine.split(':').slice(1).join(':').trim() : 'unknown',\n    raw_output: output\n  }\n}];"
-      },
-      "id": "parse-result-1",
-      "name": "Parse Result",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [1130, 300]
-    },
-    {
-      "parameters": {
-        "jsCode": "const items = $input.all();\nconst success = items.filter(i => i.json.status === 'success').length;\nconst total = items.length;\n\nreturn [{\n  json: {\n    summary: `Pipeline A Complete: ${success}/${total} demo calls processed`,\n    results: items.map(i => i.json)\n  }\n}];"
-      },
-      "id": "summary-1",
-      "name": "Generate Summary",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [1350, 300]
+      "position": [240, 130]
     }
   ],
   "connections": {
     "Manual Trigger": {
-      "main": [[{"node": "List Demo Files", "type": "main", "index": 0}]]
+      "main": [[{ "node": "1. Configuration", "type": "main", "index": 0 }]]
     },
-    "List Demo Files": {
-      "main": [[{"node": "Split into Files", "type": "main", "index": 0}]]
+    "1. Configuration": {
+      "main": [[{ "node": "2. Read Transcript", "type": "main", "index": 0 }]]
     },
-    "Split into Files": {
-      "main": [[{"node": "Run Pipeline A", "type": "main", "index": 0}]]
+    "2. Read Transcript": {
+      "main": [[{ "node": "3. Ollama Extract Memo", "type": "main", "index": 0 }]]
     },
-    "Run Pipeline A": {
-      "main": [[{"node": "Parse Result", "type": "main", "index": 0}]]
+    "3. Ollama Extract Memo": {
+      "main": [[{ "node": "4. Parse & Validate Memo", "type": "main", "index": 0 }]]
     },
-    "Parse Result": {
-      "main": [[{"node": "Generate Summary", "type": "main", "index": 0}]]
+    "4. Parse & Validate Memo": {
+      "main": [[{ "node": "5. Generate Agent Spec", "type": "main", "index": 0 }]]
+    },
+    "5. Generate Agent Spec": {
+      "main": [[{ "node": "6. Save Outputs", "type": "main", "index": 0 }]]
     }
   },
   "settings": {
     "executionOrder": "v1"
   },
   "tags": [
-    {"name": "clara-pipeline"}
+    { "name": "clara-pipeline" }
   ]
 }

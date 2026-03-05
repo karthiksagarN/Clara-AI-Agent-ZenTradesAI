@@ -1,19 +1,23 @@
 {
   "company_name": "Ben's Electric Solutions",
-  "contact_info": null,
+  "contact_info": {
+    "name": "Ben Penoyer",
+    "email": "Ben@BensElectricSolutionsTeam.com",
+    "phone_number": "403-975-1773",
+    "billing_address": ""
+  },
   "contract_details": {
-    "plan": "Starter Plan",
-    "minutes": 500,
-    "duration": "3 months",
-    "price": "$249 x 3 = $750 + 5% GST in Canada"
+    "plan": "Custom Plan",
+    "minutes": null,
+    "duration": null,
+    "price": "$X + Y% GST in Canada"
   },
   "payment_info": {
-    "card_number": "5526-1220-0052-4781",
-    "expiration_date": "03/29",
-    "CVV": "641"
+    "card_number": null,
+    "expiration_date": null,
+    "CVV": null
   },
   "next_steps": [
-    "Sign DocuSign contract within the next 15 minutes",
     "Schedule kickoff call for tomorrow at noon",
     "Confirm kickoff call invite sent to Ben@BensElectricSolutionsTeam.com"
   ],
@@ -23,21 +27,12 @@
       "purpose": "Introductory call with onboarding specialist"
     },
     "onboarding_specialists": [
-      "",
-      ""
+      "Priya"
     ]
   },
-  "account_id": "bens-electric-solutions-team-0876ff",
+  "account_id": null,
   "version": "v2",
-  "created_at": "2026-03-05T11:31:38.180701",
-  "updated_at": "2026-03-05T11:33:40.801969",
-  "source_transcript": "bens_electric_demo.txt",
-  "business_hours": null,
-  "emergency_definition": "power loss, safety hazards, gas station pump failures, fire alarm issues",
-  "transfer_timeout": 30,
-  "services": null,
-  "after_hours_message": "We're closed. Someone will call you back the next business day.",
-  "emergency_after_hours_action": "try Ben first, then Cole, then take detailed message",
-  "transfer_timeout_message": "I'm sorry, I wasn't able to reach Ben directly. Let me take your information and I'll make sure he calls you back as soon as possible.",
-  "notes": "[Onboarding Notes]: The onboarding call was thorough and covered all necessary details for setting up Clara's agent."
+  "created_at": null,
+  "updated_at": "2026-03-05T11:31:38.180701",
+  "source_transcript": "onsite_call_transcript.txt"
 }

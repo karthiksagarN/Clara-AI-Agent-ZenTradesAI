@@ -3,97 +3,137 @@
   "nodes": [
     {
       "parameters": {},
-      "id": "trigger-2",
+      "id": "b1-trigger",
       "name": "Manual Trigger",
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
-      "position": [250, 300]
+      "position": [240, 340]
     },
     {
       "parameters": {
-        "command": "ls -1 /home/node/recordings/onboarding/*.txt /home/node/recordings/onboarding/*.m4a /home/node/recordings/onboarding/*.mp3 /home/node/recordings/onboarding/*.wav 2>/dev/null || echo 'NO_FILES'"
+        "assignments": {
+          "assignments": [
+            {
+              "id": "onboarding-path",
+              "name": "transcript_path",
+              "value": "/home/node/recordings/onboarding/bens_electric_onboarding.txt",
+              "type": "string"
+            },
+            {
+              "id": "account-id",
+              "name": "account_id",
+              "value": "bens-electric-solutions-team-0876ff",
+              "type": "string"
+            },
+            {
+              "id": "ollama-url",
+              "name": "ollama_url",
+              "value": "http://host.docker.internal:11434",
+              "type": "string"
+            },
+            {
+              "id": "model-name",
+              "name": "model",
+              "value": "llama3.1:8b",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
       },
-      "id": "list-files-2",
-      "name": "List Onboarding Files",
-      "type": "n8n-nodes-base.executeCommand",
+      "id": "b1-config",
+      "name": "1. Configuration",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [460, 340]
+    },
+    {
+      "parameters": {
+        "jsCode": "const fs = require('fs');\nconst config = $input.first().json;\n\nlet transcript;\ntry {\n  transcript = fs.readFileSync(config.transcript_path, 'utf8');\n} catch (e) {\n  throw new Error(`Cannot read transcript: ${e.message}`);\n}\n\nconst v1Path = `/home/node/outputs/accounts/${config.account_id}/v1/memo.json`;\nlet v1Memo;\ntry {\n  v1Memo = JSON.parse(fs.readFileSync(v1Path, 'utf8'));\n} catch (e) {\n  throw new Error(`Cannot read v1 memo at ${v1Path}: ${e.message}. Run Pipeline A first.`);\n}\n\nreturn [{\n  json: {\n    ...config,\n    transcript,\n    v1_memo: v1Memo,\n    filename: config.transcript_path.split('/').pop(),\n    company_name: v1Memo.company_name\n  }\n}];"
+      },
+      "id": "b1-read",
+      "name": "2. Read Transcript + v1 Memo",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 340]
+    },
+    {
+      "parameters": {
+        "jsCode": "const http = require('http');\nconst data = $input.first().json;\n\nconst prompt = `You are a data extraction assistant. Compare this ONBOARDING call transcript against the existing account memo and extract ONLY the fields that are NEW or CHANGED.\n\nExisting v1 memo:\n${JSON.stringify(data.v1_memo, null, 2).substring(0, 2000)}\n\nReturn ONLY a JSON object with fields that changed or were added. If a field is unchanged, do NOT include it. Include null for fields that should be cleared.\n\nOnboarding Transcript:\n${data.transcript.substring(0, 6000)}`;\n\nconst body = JSON.stringify({\n  model: data.model,\n  prompt: prompt,\n  stream: false,\n  options: { temperature: 0.1 }\n});\n\n// Parse URL manually (URL class not available in n8n sandbox)\nconst urlParts = data.ollama_url.replace('http://', '').split(':');\nconst hostname = urlParts[0];\nconst port = urlParts[1] ? parseInt(urlParts[1]) : 80;\n\nconst result = await new Promise((resolve, reject) => {\n  const req = http.request({\n    hostname: hostname,\n    port: port,\n    path: '/api/generate',\n    method: 'POST',\n    headers: { 'Content-Type': 'application/json' },\n    timeout: 120000\n  }, (res) => {\n    let responseData = '';\n    res.on('data', chunk => responseData += chunk);\n    res.on('end', () => {\n      try {\n        resolve(JSON.parse(responseData));\n      } catch (e) {\n        reject(new Error('Failed to parse Ollama response'));\n      }\n    });\n  });\n  req.on('error', reject);\n  req.on('timeout', () => reject(new Error('Ollama request timed out')));\n  req.write(body);\n  req.end();\n});\n\nreturn [{ json: { ...data, ollama_response: result.response || '' } }];"
+      },
+      "id": "b1-ollama",
+      "name": "3. Ollama Extract Delta",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 340]
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $input.first().json;\nconst response = raw.ollama_response;\n\nlet delta;\ntry {\n  const jsonMatch = response.match(/\\{[\\s\\S]*\\}/);\n  delta = jsonMatch ? JSON.parse(jsonMatch[0]) : {};\n} catch (e) {\n  delta = {};\n}\n\nconst v1 = raw.v1_memo || {};\nconst v2 = JSON.parse(JSON.stringify(v1));\nconst changelog = [];\n\nfor (const [key, newVal] of Object.entries(delta)) {\n  const oldVal = v1[key];\n  if (JSON.stringify(oldVal) !== JSON.stringify(newVal)) {\n    changelog.push({ field: key, old_value: oldVal || null, new_value: newVal, reason: 'onboarding_override' });\n  }\n  if (newVal && typeof newVal === 'object' && !Array.isArray(newVal) && oldVal && typeof oldVal === 'object') {\n    v2[key] = { ...oldVal, ...newVal };\n  } else {\n    v2[key] = newVal;\n  }\n}\n\nreturn [{\n  json: {\n    account_id: raw.account_id,\n    company_name: v1.company_name || '',\n    v2_memo: v2,\n    delta,\n    changelog,\n    changes_count: changelog.length\n  }\n}];"
+      },
+      "id": "b1-merge",
+      "name": "4. Merge v1 + Delta → v2",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 340]
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $input.first().json;\nconst memo = data.v2_memo;\nconst account_id = data.account_id;\n\nconst company = memo.company_name || 'Unknown Company';\nconst contact = memo.contact_name || 'the team';\nconst industry = memo.industry || 'general business';\nconst challenges = (memo.current_challenges || []).join(', ') || 'general inquiries';\nconst services = (memo.services_of_interest || []).join(', ') || 'our services';\nconst specials = (memo.special_instructions || []).join('\\n- ') || 'None';\nconst hours = memo.business_hours || {};\nconst bh = `${hours.days || 'Monday-Friday'}, ${hours.open || '9:00 AM'} - ${hours.close || '5:00 PM'}`;\n\nconst system_prompt = `You are Clara, an AI voice assistant for ${company}.\n\nCompany: ${company}\nIndustry: ${industry}\nPrimary Contact: ${contact}\nBusiness Hours: ${bh}\n\nKey Services: ${services}\nCustomer Challenges: ${challenges}\nSpecial Instructions:\n- ${specials}\n\nDuring business hours:\n- Answer calls professionally for ${company}\n- Help with scheduling and service inquiries\n- Collect caller name, phone, and reason for calling\n- Transfer to ${contact} for complex issues\n\nOutside business hours:\n- Inform callers of business hours (${bh})\n- Offer to take a message\n- Handle emergencies per protocol\n\nCritical Rules:\n- Never fabricate information about ${company}\n- Always confirm before transferring calls\n- Be professional, friendly, and empathetic\n\nThis is v2 (updated after onboarding call with ${data.changes_count} changes applied).`;\n\nconst agent_spec = {\n  agent_name: `${company} - Clara AI`,\n  account_id,\n  version: 'v2',\n  system_prompt,\n  voice_style: { tone: 'professional and friendly', pace: 'moderate', personality: 'helpful assistant' },\n  source: 'onboarding_call',\n  changes_from_v1: data.changes_count\n};\n\nreturn [{ json: { ...data, agent_spec } }];"
+      },
+      "id": "b1-agent",
+      "name": "5. Generate v2 Agent Spec",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1340, 340]
+    },
+    {
+      "parameters": {
+        "jsCode": "const fs = require('fs');\nconst path = require('path');\nconst data = $input.first().json;\nconst baseDir = `/home/node/outputs/accounts/${data.account_id}/v2`;\n\ntry {\n  fs.mkdirSync(baseDir, { recursive: true });\n  fs.writeFileSync(path.join(baseDir, 'memo.json'), JSON.stringify(data.v2_memo, null, 2));\n  fs.writeFileSync(path.join(baseDir, 'agent_spec.json'), JSON.stringify(data.agent_spec, null, 2));\n  fs.writeFileSync(path.join(baseDir, 'delta.json'), JSON.stringify(data.delta, null, 2));\n  fs.writeFileSync(path.join(baseDir, 'changelog.json'), JSON.stringify({\n    account_id: data.account_id,\n    company: data.company_name,\n    version_from: 'v1', version_to: 'v2',\n    total_changes: data.changes_count,\n    changes: data.changelog\n  }, null, 2));\n\n  const changelogDir = '/home/node/changelog';\n  fs.mkdirSync(changelogDir, { recursive: true });\n  let md = `# Changelog: ${data.company_name}\\n\\n`;\n  md += `**Account ID:** ${data.account_id}\\n`;\n  md += `**Version:** v1 → v2\\n`;\n  md += `**Total Changes:** ${data.changes_count}\\n\\n`;\n  md += `| Field | Old Value | New Value | Reason |\\n|-------|-----------|-----------|--------|\\n`;\n  for (const c of data.changelog) {\n    md += `| ${c.field} | ${JSON.stringify(c.old_value)} | ${JSON.stringify(c.new_value)} | ${c.reason} |\\n`;\n  }\n  fs.writeFileSync(path.join(changelogDir, `${data.account_id}_changes.md`), md);\n\n  return [{\n    json: {\n      status: 'SUCCESS',\n      account_id: data.account_id,\n      company: data.company_name,\n      output_dir: baseDir,\n      files_saved: ['memo.json', 'agent_spec.json', 'delta.json', 'changelog.json'],\n      changes_applied: data.changes_count,\n      message: `Pipeline B complete: ${data.changes_count} changes for ${data.company_name}`\n    }\n  }];\n} catch (e) {\n  return [{ json: { status: 'ERROR', error: e.message } }];\n}"
+      },
+      "id": "b1-save",
+      "name": "6. Save v2 Outputs + Changelog",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1560, 340]
+    },
+    {
+      "parameters": {
+        "content": "## Clara Pipeline B: Onboarding → v2 Agent\n\n**Flow:** Read onboarding transcript + v1 memo → Ollama delta extraction → Merge → Generate v2 Agent Spec → Save + changelog\n\n**To run:** Edit \"1. Configuration\" with transcript path and account_id from Pipeline A.\n\n**Prerequisite:** Pipeline A must have run first for this account.",
+        "height": 170,
+        "width": 550
+      },
+      "id": "b1-note",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
-      "position": [470, 300]
-    },
-    {
-      "parameters": {
-        "jsCode": "const output = $input.first().json.stdout;\nif (output === 'NO_FILES') {\n  throw new Error('No onboarding files found in /recordings/onboarding/');\n}\nconst files = output.trim().split('\\n').filter(f => f.length > 0);\nreturn files.map(f => ({ json: { file_path: f, filename: f.split('/').pop() } }));"
-      },
-      "id": "split-files-2",
-      "name": "Split into Files",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [690, 300]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Derive company name from filename for account matching\nconst filename = $json.filename;\nconst stem = filename.replace(/\\.[^.]+$/, '').replace(/_onboarding/i, '').replace(/-/g, ' ').replace(/_/g, ' ');\nconst company = stem.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');\nreturn [{ json: { ...$json, company_name: company } }];"
-      },
-      "id": "derive-company-2",
-      "name": "Derive Company Name",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [910, 300]
-    },
-    {
-      "parameters": {
-        "command": "cd /home/node/scripts && python3 run_pipeline_b.py '{{ $json.file_path }}' --company '{{ $json.company_name }}' --skip-transcription 2>&1"
-      },
-      "id": "run-pipeline-b",
-      "name": "Run Pipeline B",
-      "type": "n8n-nodes-base.executeCommand",
-      "typeVersion": 1,
-      "position": [1130, 300]
-    },
-    {
-      "parameters": {
-        "jsCode": "const output = $input.first().json.stdout;\nconst lines = output.split('\\n');\nconst accountLine = lines.find(l => l.includes('Account ID:'));\nconst companyLine = lines.find(l => l.includes('Company:'));\nconst changesLine = lines.find(l => l.includes('Changes:'));\n\nreturn [{\n  json: {\n    status: 'success',\n    account_id: accountLine ? accountLine.split(':').slice(1).join(':').trim() : 'unknown',\n    company: companyLine ? companyLine.split(':').slice(1).join(':').trim() : 'unknown',\n    changes: changesLine ? changesLine.split(':').slice(1).join(':').trim() : '0',\n    raw_output: output\n  }\n}];"
-      },
-      "id": "parse-result-2",
-      "name": "Parse Result",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [1350, 300]
-    },
-    {
-      "parameters": {
-        "jsCode": "const items = $input.all();\nconst success = items.filter(i => i.json.status === 'success').length;\nconst total = items.length;\nconst totalChanges = items.reduce((sum, i) => sum + parseInt(i.json.changes || 0), 0);\n\nreturn [{\n  json: {\n    summary: `Pipeline B Complete: ${success}/${total} onboarding calls processed, ${totalChanges} total changes`,\n    results: items.map(i => i.json)\n  }\n}];"
-      },
-      "id": "summary-2",
-      "name": "Generate Summary",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [1570, 300]
+      "position": [240, 130]
     }
   ],
   "connections": {
     "Manual Trigger": {
-      "main": [[{"node": "List Onboarding Files", "type": "main", "index": 0}]]
+      "main": [[{ "node": "1. Configuration", "type": "main", "index": 0 }]]
     },
-    "List Onboarding Files": {
-      "main": [[{"node": "Split into Files", "type": "main", "index": 0}]]
+    "1. Configuration": {
+      "main": [[{ "node": "2. Read Transcript + v1 Memo", "type": "main", "index": 0 }]]
     },
-    "Split into Files": {
-      "main": [[{"node": "Derive Company Name", "type": "main", "index": 0}]]
+    "2. Read Transcript + v1 Memo": {
+      "main": [[{ "node": "3. Ollama Extract Delta", "type": "main", "index": 0 }]]
     },
-    "Derive Company Name": {
-      "main": [[{"node": "Run Pipeline B", "type": "main", "index": 0}]]
+    "3. Ollama Extract Delta": {
+      "main": [[{ "node": "4. Merge v1 + Delta → v2", "type": "main", "index": 0 }]]
     },
-    "Run Pipeline B": {
-      "main": [[{"node": "Parse Result", "type": "main", "index": 0}]]
+    "4. Merge v1 + Delta → v2": {
+      "main": [[{ "node": "5. Generate v2 Agent Spec", "type": "main", "index": 0 }]]
     },
-    "Parse Result": {
-      "main": [[{"node": "Generate Summary", "type": "main", "index": 0}]]
+    "5. Generate v2 Agent Spec": {
+      "main": [[{ "node": "6. Save v2 Outputs + Changelog", "type": "main", "index": 0 }]]
     }
   },
   "settings": {
     "executionOrder": "v1"
   },
   "tags": [
-    {"name": "clara-pipeline"}
+    { "name": "clara-pipeline" }
   ]
 }

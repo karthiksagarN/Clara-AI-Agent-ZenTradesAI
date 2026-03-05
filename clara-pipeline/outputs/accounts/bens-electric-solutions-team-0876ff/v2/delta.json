@@ -1,84 +1,37 @@
 {
-  "changes": {
-    "company_name": {
-      "new_value": "Ben's Electric Solutions",
-      "reason": "confirmed during onboarding"
-    },
-    "contact_info": {
-      "phone_number": {
-        "new_value": "403-975-1773",
-        "reason": "confirmed during onboarding"
-      },
-      "billing_address": {
-        "new_value": "47 Harvest Gold Manor NE, Calgary, AB T3K 4R3",
-        "reason": "confirmed during onboarding"
-      }
-    },
-    "business_hours": {
-      "start_time": {
-        "new_value": "7:30 AM",
-        "reason": "confirmed during onboarding"
-      },
-      "end_time": {
-        "new_value": "4:30 PM",
-        "reason": "confirmed during onboarding"
-      },
-      "days_of_week": {
-        "new_value": "Monday through Friday",
-        "reason": "confirmed during onboarding"
-      },
-      "time_zone": {
-        "new_value": "Mountain Standard Time",
-        "reason": "confirmed during onboarding"
-      }
-    },
-    "emergency_definition": {
-      "new_value": "power loss, safety hazards, gas station pump failures, fire alarm issues",
-      "reason": "defined during onboarding"
-    },
-    "transfer_timeout": {
-      "new_value": 30,
-      "reason": "confirmed during onboarding"
-    },
-    "services": {
-      "new_services": [
-        "lighting upgrades",
-        "electrical inspections",
-        "generator installations"
-      ],
-      "removed_services": [
-        "gemstone lights",
-        "solar panel installations"
-      ]
-    }
+  "company_name": "Ben's Electric Solutions",
+  "contact_info": {
+    "name": "Ben Penoyer",
+    "email": "Ben@BensElectricSolutionsTeam.com",
+    "phone_number": "403-975-1773"
   },
-  "new_fields": {
-    "after_hours_message": {
-      "value": "We're closed. Someone will call you back the next business day.",
-      "reason": "confirmed during onboarding"
-    },
-    "emergency_after_hours_action": {
-      "value": "try Ben first, then Cole, then take detailed message",
-      "reason": "defined during onboarding"
-    },
-    "transfer_timeout_message": {
-      "value": "I'm sorry, I wasn't able to reach Ben directly. Let me take your information and I'll make sure he calls you back as soon as possible.",
-      "reason": "confirmed during onboarding"
-    }
+  "contract_details": {
+    "plan": "Custom Plan",
+    "minutes": null,
+    "duration": null,
+    "price": "$X + Y% GST in Canada"
   },
-  "confirmed_unchanged": [
-    "company_name",
-    "contact_info",
-    "contract_details",
-    "payment_info",
-    "next_steps",
-    "onboarding_process",
-    "account_id",
-    "version",
-    "created_at",
-    "updated_at",
-    "source_transcript"
+  "payment_info": {
+    "card_number": null,
+    "expiration_date": null,
+    "CVV": null
+  },
+  "next_steps": [
+    "Schedule kickoff call for tomorrow at noon",
+    "Confirm kickoff call invite sent to Ben@BensElectricSolutionsTeam.com"
   ],
-  "questions_or_unknowns": [],
-  "onboarding_notes": "The onboarding call was thorough and covered all necessary details for setting up Clara's agent."
+  "onboarding_process": {
+    "kickoff_call": {
+      "duration": "30 minutes",
+      "purpose": "Introductory call with onboarding specialist"
+    },
+    "onboarding_specialists": [
+      "Priya"
+    ]
+  },
+  "account_id": null,
+  "version": "v2",
+  "created_at": null,
+  "updated_at": "2026-03-05T11:31:38.180701",
+  "source_transcript": "onsite_call_transcript.txt"
 }

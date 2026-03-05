@@ -1,83 +1,126 @@
 {
   "account_id": "bens-electric-solutions-team-0876ff",
-  "company_name": "Ben's Electric Solutions",
+  "company": "Bens Electric Solutions Team",
   "version_from": "v1",
   "version_to": "v2",
-  "timestamp": "2026-03-05T11:33:40.826785",
-  "total_changes": 9,
+  "total_changes": 11,
   "changes": [
     {
       "field": "company_name",
-      "action": "modified",
       "old_value": "Bens Electric Solutions Team",
       "new_value": "Ben's Electric Solutions",
-      "reason": "confirmed during onboarding"
+      "reason": "onboarding_override"
     },
     {
       "field": "contact_info",
-      "action": "modified",
       "old_value": {
         "name": "Ben Penoyer",
         "email": "Ben@BensElectricSolutionsTeam.com",
         "phone_number": "",
         "billing_address": ""
       },
+      "new_value": {
+        "name": "Ben Penoyer",
+        "email": "Ben@BensElectricSolutionsTeam.com",
+        "phone_number": "403-975-1773"
+      },
+      "reason": "onboarding_override"
+    },
+    {
+      "field": "contract_details",
+      "old_value": {
+        "plan": "Starter Plan",
+        "minutes": 500,
+        "duration": "3 months",
+        "price": "$249 x 3 = $750 + 5% GST in Canada"
+      },
+      "new_value": {
+        "plan": "Custom Plan",
+        "minutes": null,
+        "duration": null,
+        "price": "$X + Y% GST in Canada"
+      },
+      "reason": "onboarding_override"
+    },
+    {
+      "field": "payment_info",
+      "old_value": {
+        "card_number": "5526-1220-0052-4781",
+        "expiration_date": "03/29",
+        "CVV": "641"
+      },
+      "new_value": {
+        "card_number": null,
+        "expiration_date": null,
+        "CVV": null
+      },
+      "reason": "onboarding_override"
+    },
+    {
+      "field": "next_steps",
+      "old_value": [
+        "Sign DocuSign contract within the next 15 minutes",
+        "Schedule kickoff call for tomorrow at noon",
+        "Confirm kickoff call invite sent to Ben@BensElectricSolutionsTeam.com"
+      ],
+      "new_value": [
+        "Schedule kickoff call for tomorrow at noon",
+        "Confirm kickoff call invite sent to Ben@BensElectricSolutionsTeam.com"
+      ],
+      "reason": "onboarding_override"
+    },
+    {
+      "field": "onboarding_process",
+      "old_value": {
+        "kickoff_call": {
+          "duration": "30 minutes",
+          "purpose": "Introductory call with onboarding specialist"
+        },
+        "onboarding_specialists": [
+          "",
+          ""
+        ]
+      },
+      "new_value": {
+        "kickoff_call": {
+          "duration": "30 minutes",
+          "purpose": "Introductory call with onboarding specialist"
+        },
+        "onboarding_specialists": [
+          "Priya"
+        ]
+      },
+      "reason": "onboarding_override"
+    },
+    {
+      "field": "account_id",
+      "old_value": "bens-electric-solutions-team-0876ff",
       "new_value": null,
-      "reason": "updated_during_onboarding"
+      "reason": "onboarding_override"
     },
     {
-      "field": "business_hours",
-      "action": "modified",
-      "old_value": null,
+      "field": "version",
+      "old_value": "v1",
+      "new_value": "v2",
+      "reason": "onboarding_override"
+    },
+    {
+      "field": "created_at",
+      "old_value": "2026-03-05T11:31:38.180701",
       "new_value": null,
-      "reason": "updated_during_onboarding"
+      "reason": "onboarding_override"
     },
     {
-      "field": "emergency_definition",
-      "action": "modified",
+      "field": "updated_at",
       "old_value": null,
-      "new_value": "power loss, safety hazards, gas station pump failures, fire alarm issues",
-      "reason": "defined during onboarding"
+      "new_value": "2026-03-05T11:31:38.180701",
+      "reason": "onboarding_override"
     },
     {
-      "field": "transfer_timeout",
-      "action": "modified",
-      "old_value": null,
-      "new_value": 30,
-      "reason": "confirmed during onboarding"
-    },
-    {
-      "field": "services",
-      "action": "modified",
-      "old_value": null,
-      "new_value": null,
-      "reason": "updated_during_onboarding"
-    },
-    {
-      "field": "after_hours_message",
-      "action": "added",
-      "old_value": null,
-      "new_value": "We're closed. Someone will call you back the next business day.",
-      "reason": "confirmed during onboarding"
-    },
-    {
-      "field": "emergency_after_hours_action",
-      "action": "added",
-      "old_value": null,
-      "new_value": "try Ben first, then Cole, then take detailed message",
-      "reason": "defined during onboarding"
-    },
-    {
-      "field": "transfer_timeout_message",
-      "action": "added",
-      "old_value": null,
-      "new_value": "I'm sorry, I wasn't able to reach Ben directly. Let me take your information and I'll make sure he calls you back as soon as possible.",
-      "reason": "confirmed during onboarding"
+      "field": "source_transcript",
+      "old_value": "bens_electric_demo.txt",
+      "new_value": "onsite_call_transcript.txt",
+      "reason": "onboarding_override"
     }
-  ],
-  "summary": {
-    "fields_modified": 6,
-    "fields_added": 3,
-    "fields_updated": 0
-  }
+  ]
 }

@@ -1,0 +1,33 @@
+{
+  "company_name": "Ben's Electric Solutions",
+  "contact_name": "Ben",
+  "contact_role": "Owner",
+  "phone": null,
+  "email": null,
+  "industry": "Electrical Contracting",
+  "company_size": "Small (less than 10 employees)",
+  "current_challenges": [
+    "Managing subcontractors and their reliability",
+    "Scaling the business while maintaining quality"
+  ],
+  "services_of_interest": [
+    "AI-powered virtual assistant",
+    "Phone system with company app"
+  ],
+  "budget_range": null,
+  "timeline": "End of year (5 company work vans)",
+  "business_hours": {
+    "days": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "open": null,
+    "close": null
+  },
+  "call_handling_preferences": {},
+  "special_instructions": [],
+  "questions_or_unknowns": []
+}
