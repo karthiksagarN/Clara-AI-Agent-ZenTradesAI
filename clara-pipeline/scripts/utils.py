@@ -18,8 +18,12 @@ load_dotenv()
 
 # --- Configuration ---
 BASE_DIR = Path(__file__).parent.parent
-OUTPUT_DIR = Path(os.getenv("OUTPUT_DIR", str(BASE_DIR / "outputs")))
-RECORDINGS_DIR = Path(os.getenv("RECORDINGS_DIR", str(BASE_DIR / "recordings")))
+
+# Resolve relative paths against BASE_DIR, not CWD
+_output_raw = os.getenv("OUTPUT_DIR", "outputs")
+_recordings_raw = os.getenv("RECORDINGS_DIR", "recordings")
+OUTPUT_DIR = Path(_output_raw) if Path(_output_raw).is_absolute() else BASE_DIR / _output_raw
+RECORDINGS_DIR = Path(_recordings_raw) if Path(_recordings_raw).is_absolute() else BASE_DIR / _recordings_raw
 CHANGELOG_DIR = BASE_DIR / "changelog"
 DB_DIR = BASE_DIR / "db"
 PROMPTS_DIR = BASE_DIR / "prompts"

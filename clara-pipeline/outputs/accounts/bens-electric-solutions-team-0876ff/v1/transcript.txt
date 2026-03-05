@@ -1,0 +1,729 @@
+================================================================================
+SALES CALL TRANSCRIPT
+Clara AI — Demo Call with Ben (Ben's Electric Solutions)
+================================================================================
+
+
+PARTICIPANTS:
+  - Nick        (Clara AI, Account Executive)
+  - Bharat      (Clara AI, Solutions Expert & Growth Partner)
+  - Ben         (Owner, Ben's Electric Solutions)
+
+--------------------------------------------------------------------------------
+CALL TRANSCRIPT
+--------------------------------------------------------------------------------
+
+NICK: All right, we'll let Ben in now in three, two, one. And he's in. Hey, Ben, can you hear me?
+
+BEN: Wait, can you hear me? Yeah.
+
+NICK: Yeah, I can. Perfect. Here we go. Okay, Ben, thank you so much for joining on such short
+notice. And before starting, just wanted to introduce myself again. I'm Nick. I am part of the Clara
+team. We reach out to businesses across North America, and we have built AI agents for trades
+businesses specifically. And to help us with that, I have here with me my colleague Bharat, who's
+the solutions expert and the growth partner at Clara AI. He's the best person who knows everything
+in and out about the industry as well as the product. So he'll be the one walking us through the
+presentation today. Over to you, Bharat.
+
+BHARAT: Thank you, Nick. Ben, good morning. How are you?
+
+BEN: I'm doing very well. How are you?
+
+BHARAT: Very well. Really excited about our conversation. I'm glad we were able to do it earlier —
+sooner rather than later, right?
+
+BEN: Absolutely. That's what I thought, too.
+
+BHARAT: And I hope we have enough time. I hope you're not in a rush to hop off somewhere.
+
+BEN: I am always in a rush, but no, we've got time.
+
+BHARAT: Great. So let me start off by introducing myself and my company, what we do. After that,
+we'd love to know a little about you as well, since it's the first time we've connected. Then we'll dive
+into what we're doing, do a demo of our platform, and see how things go from there. Sound good?
+
+  So I am Bharat. I work with Nick and a few other folks — we're a very lean team. I represent the
+solutions team here at Clara. What I do day in and day out is speak to contractors such as yourself,
+understand your workflows, and see how you're doing things right now. After understanding that, I
+look at where we can plug in our solution to further enhance the way you do things.
+
+  A little about the company: we started a while ago, close to three years now. We started because
+we saw AI taking over the world —
+
+BEN: It's everywhere. Yeah.
+
+BHARAT: — but what we noticed was that AI was penetrating deeply into white-collar business. All
+the Fortune 500 companies of the world are using it, which is absolutely fine. The trades, however —
+the blue-collar industry — didn't see a lot of penetration compared to white-collar. That's how our
+journey began. We started speaking to a lot of contractors and realized there are a lot of
+opportunities for us to work. What we picked up and actually built is something I'm going to show
+you in just a bit. But I'll pause here — I'd love to know a little about you. How long have you been
+in this business?
+
+BEN: Oh yeah. I've been working for myself for about eight years now, and it's fun. I've been an
+electrician for 30 years, running my own business for the last eight. I'm going to try and grow a
+little bit bigger this year. We've been relatively small — I just have a couple of guys, a couple of
+vans out on the road. I do pretty much all the admin and back-end stuff myself, which is going fine.
+But as we get busier, I've got to get some help. I've actually got another guy coming on as an
+operations manager to help me out with all of that.
+
+  I've dabbled with having a virtual assistant — that didn't go great, but I probably didn't really know
+how to use her properly either. I also tried looking into a different phone system so I could have a
+company app and one company line for everybody on my team. But it was really weird — everybody
+was assigned a different number and nobody ever answered because it all looked like spam. So we
+shut that down right quick.
+
+  I've got software called Jobber that runs as my CRM, and it's fantastic. It really helps out a lot.
+
+BHARAT: That's quite helpful. Thank you for sharing so much in so little time. Jobber is your CRM —
+great, we're familiar with that. The reason we're familiar with it is because the folks who started this
+company have 15 to 20 years of experience in the trades business themselves. They are contractors
+and tech builders, so it's an intersection of all of that. So I'm familiar with how Jobber works.
+
+  You mentioned you have a couple of trucks out in the field — how many people are working for
+you today?
+
+BEN: I've got two company work vans. I'm getting a third one on the road at the end of the week.
+So I'll have three company work vans, and then I've got two subcontractors. About four vans on the
+road typically — by the end of the year I want to have five.
+
+BHARAT: And the subcontractors — they come in for certain projects and tasks, I assume?
+
+BEN: Pretty much. When we get busy, I bring in subcontractors to take the overflow work. I've had
+one guy working basically full time for me as a sub. Subcontractors are great because they're
+generally pretty good electricians, but they're not as reliable because when they get their own jobs
+they sometimes don't give much notice. That's why we're getting another company van — I'm
+definitely busy enough to have three full-time guys and scale back the sub work a bit.
+
+BHARAT: And your full-time guys — journeymen?
+
+BEN: Yes, each van has a full-time journeyman. So I've got three journeymen, and then I'll have one
+apprentice. Actually I just laid one off, so I need to be getting another apprentice pretty soon.
+
+BHARAT: So a team of four plus you, plus a subcontractor, and you're also bringing in a management
+person to help with estimating?
+
+BEN: Yeah, pretty close to five employees plus myself and a sub.
+
+BHARAT: And all the others are usually out in the field — you're the one taking care of the entire
+office?
+
+BEN: That's right. Yeah.
+
+BHARAT: Do you go out in the field as well at times?
+
+BEN: I do. I try not to need to help the guys physically, but I can guide them over the phone. I go
+into the field to look at jobs and do quotes — a lot of customer-facing stuff.
+
+BHARAT: So your guys in the field, when they have questions, they reach out to you and you can
+guide them or troubleshoot over the phone?
+
+BEN: Yeah.
+
+BHARAT: Got it. Now, what kind of jobs do you do? Service calls? Projects?
+
+BEN: Everything. Service calls, small jobs, odd jobs — we get a lot of weird stuff. Not a lot of
+contractors do that. A lot of renovations, troubleshooting, and then we do get some full projects like
+new custom homes or tenant improvements. EV chargers, hot tub hookups, panel changes — all that
+service and maintenance stuff.
+
+BHARAT: I saw EV on your website — residential and commercial, really everything. So how are you
+managing all this? It's a lot of work.
+
+BEN: It is a lot. It's all electrical — it all needs to be done by electricians. It's really just a matter of
+what things we've actually worked with. The first time you hook up an EV charger you've got to figure
+it out, but once you've figured it out it gets a lot easier.
+
+  We do stretch ourselves fairly thin. It's tough to let certain things go — if a customer calls and we've
+got the bandwidth, sure, we'll help. There are some things we don't do anymore, like the gemstone
+lights. That just wasn't worth it.
+
+BHARAT: Okay, so you've started turning down work that's outside your expertise.
+
+BEN: Yeah, exactly. I can do just about anything with 30 years in, but some of the younger guys
+don't have the same experience. They can't necessarily take everything on with the same knowledge.
+
+BHARAT: Since you mentioned service calls — you're probably getting calls during hours, after hours,
+over the weekend, around holidays?
+
+BEN: We do. Most of it is business hours, but I do get the occasional call after hours and on weekends.
+Sometimes I turn that stuff down because we're not equipped for emergency services — except for
+some of our regular property managers and general contractors. For them we'll get out there for
+emergency calls. For someone I don't know calling on a weekend, I'll refer them elsewhere.
+
+BHARAT: Do you have somebody on call, or is it just you?
+
+BEN: I'm the one on call.
+
+BHARAT: So after hours — that's you.
+
+BEN: Yeah. And I don't have to go out very often. I've got one property manager who runs some gas
+stations. Sometimes when their pumps go down, it's got to be fixed right away, so I'll get out there
+for that.
+
+BHARAT: That's all very helpful. Thank you, Ben. Pardon my constant questioning — I'm just trying
+to understand you better. You mentioned a virtual receptionist or virtual assistant. Was that an AI
+solution?
+
+BEN: Actually it was a virtual assistant — a live person. I was paying for about 20 hours a week of
+her time. It was kind of weird because I was only paying for a fixed number of hours. I couldn't have
+her answering phones necessarily, and I probably could have used her more for data entry. But it
+wasn't the greatest fit. I was pretty new to my business at the time.
+
+  I have an assistant now who I'm bringing on as an operations manager and estimator — that's going
+way better. I communicate with him all the time, get him to do data entry, and next month he's going
+to start looking at some jobs by himself. He's been coming with me to do quotes.
+
+BHARAT: So you're kind of building another you in the company.
+
+BEN: That's the goal, to be honest. Yeah.
+
+BHARAT: So just to clarify — when you mentioned a virtual assistant before, that was a real person,
+not a tech solution?
+
+BEN: It was a person. She was in Toronto. I wasn't having her take calls — it was more like I'd
+message her and ask her to do some data entry. Honestly, I didn't use her very much because I
+didn't really know how. It wasn't the greatest fit anyway.
+
+BHARAT: And you haven't experimented with anything AI since then?
+
+BEN: No. I haven't experimented with anything AI.
+
+BHARAT: Okay, so we'll probably be the first to show you something very different. Now let me tell
+you what we do, Ben. Feel free to interrupt and ask questions just like I've been doing with you.
+
+  We started on this journey a while ago. We broke things down into different segments: back office,
+field, and the end customer. Within these segments, we identified areas that can be automated —
+things that are redundant. We've built close to six agents catering to different aspects of the
+business.
+
+  The most fundamental thing we've built is a solution to help specifically with incoming calls. You
+mentioned you're the one taking calls — some after hours, some emergencies. Calls are coming in
+at all times, some relevant, some not. How can we help save your time on this?
+
+  Just think of it as a person sitting in the office taking calls for you 24/7, around the clock. It
+speaks to the customer, understands, responds, and acts on top of it. Whenever they call, it
+handles the conversation. That's one solution we've built.
+
+BEN: That's interesting. We do such a varied range of work. If a customer calls about generators
+and we haven't done anything about generators — that's not part of our repertoire — will the AI be
+able to handle that? How does it handle something unexpected?
+
+BHARAT: The short answer is: the way you want it to. The long answer involves our onboarding
+process. When you decide to implement it, we don't just go live in 15 minutes. We spend a few
+days understanding the kinds of jobs you do, the jobs you don't do, your current workflows, and
+where you want calls to go.
+
+  For example, if somebody calls about an invoice dispute, and tomorrow you have an accounting
+department, the AI is already trained to recognize that, validate the call, and route it to the right
+person — their phone rings automatically. We call those smart escalations.
+
+  The point is: whatever you want the system to do, it will, because it's 100% customizable.
+
+  In fact, I want you to try it out. Let me show you a demo. I'll flash a number on your screen — all
+you have to do is dial it and speak to it like you're a customer calling in about an electrical problem.
+Keep your phone on speaker so I can hear both sides.
+
+BEN: Sure. Should I mute my Zoom?
+
+BHARAT: No need to mute Zoom. Just call from your phone and keep Zoom on. Can you see my
+screen?
+
+BEN: Yeah. Okay, 207-1364. Okay.
+
+--------------------------------------------------------------------------------
+[DEMO CALL — FIRST SIMULATION]
+--------------------------------------------------------------------------------
+
+CLARA (AI): This is Claire from ABC Company. How can I help you today?
+
+BEN: Oh, hello. I'm wondering if you guys do outlet replacements.
+
+CLARA: We do handle outlet replacements. Are you looking to replace a single outlet, or do you have
+multiple that need attention? And is there any issue with the current outlet, or is this just an upgrade?
+
+BEN: We want to redo all the outlets in the house and have the aluminum wiring mitigated.
+
+CLARA: Thanks for sharing that. Upgrading all outlets and addressing aluminum wiring is a smart
+move for safety. Can I get your name and the address where the work will be done? That way I can
+check availability and get you set up for an estimate.
+
+BEN: My name is Ben, and the address is 17119 Sundown Road Southeast, Calgary, Alberta.
+
+CLARA: Let me quickly verify that address for you. Thanks, Ben. Just to confirm — is the address
+17119 Sundown Road S.E., Calgary, Alberta, T2X 3D4? Did I get that right?
+
+BEN: Yes. Do you guys also do fixture replacements?
+
+CLARA: Our licensed electricians can assess and upgrade your outlets to meet current safety codes,
+especially when dealing with aluminum wiring. We'll make sure everything is up to standard and safe
+for your home. Would you like to schedule a visit for a full assessment? And just a quick note — many
+of our customers join our club membership for priority scheduling, discounts on services, and annual
+safety checks. I can share more details if you're interested.
+
+BEN: Not right now.
+
+CLARA: No problem at all. Let's focus on your outlet and aluminum wiring project. What's the best
+phone number to reach you, Ben? And do you have a preferred date or time for the assessment?
+
+BEN: 403-975-1773. And I would like to have somebody come out on Friday if possible.
+
+CLARA: Thank you. Just to confirm, your number is 403-975-1773 — correct? You mean Friday,
+January 9, 2026. Do you have a preferred time of day? Morning or afternoon?
+
+BEN: 6:00 AM would be great.
+
+CLARA: Got it — Friday, January 9, 2026 at 6:00 AM. That's a bit earlier than our standard hours,
+which start at 8 AM. But I'll check if we can accommodate an early appointment for you. If we can't
+do 6 AM, would you prefer the first available slot after 8 AM, or would you like to pick another time?
+
+BEN: I'll pick another time.
+
+CLARA: Understood. I'll schedule you for the first available slot after 8 AM on Friday, January 9,
+2026. I'll confirm the exact time with our team and let you know. You're all set for now, Ben. If you
+have any other questions or need to adjust the appointment, just let us know. Thanks for calling and
+have a great day.
+
+BEN: Thanks.
+
+CLARA: Welcome, Ben. We'll be in touch soon to confirm your appointment time for Friday. Have a
+great day.
+
+--------------------------------------------------------------------------------
+[END OF DEMO CALL — FIRST SIMULATION]
+--------------------------------------------------------------------------------
+
+BEN: Wow. That was actually pretty good.
+
+BHARAT: What are your first reactions?
+
+BEN: Yeah, I actually really liked that. Surprised at how good it was, to be honest. You can tell right
+away you're talking to a computer, but that's okay — who cares? It answered all my questions, it did
+everything. I tried interrupting her. I requested a time when you're not actually open, and it handled
+that. That was pretty cool. I like that.
+
+BHARAT: You got that exactly right. Right now it's a demo — it's not built or trained on your business
+yet, but it will be. That's step one.
+
+  And if you get 20 or 30 calls at the same time, Ben's only one person — he can only take one call.
+The rest go to voicemail. The system is capable of taking 20 or 30 calls simultaneously, speaking
+to people in different languages, and flexibly navigating all of those conversations.
+
+  How we've currently trained it is to get meetings booked — that's the most important task. But if
+you want more probing questions layered in, we can configure multiple levels of qualification
+before booking.
+
+  We also have the smart escalations I mentioned earlier: if a call needs to be routed to someone
+else, it goes to that person. If they're not available, it goes to person B, then C, then D. A customer
+calling you will never have a missed call — ever.
+
+BEN: Okay, that's actually really cool. So what does the AI do after my call with it — what happens
+next?
+
+BHARAT: Great question. After a call, you're informed through various channels based on your
+preference. You can get an email with everything about the call — the intent, the caller's details,
+a one-line summary of what was discussed, the preferred job date and time, and a link to the full
+recording and transcript.
+
+  The same information comes to you via text. And for people who are more tech-savvy, there's a
+full dashboard. It shows you the total calls received, how many were answered, total conversation
+minutes, and how many were potential leads.
+
+  You'll also notice there are calls that are not potential leads — people trying to sell you things,
+insurance, credit cards. Those are filtered out automatically.
+
+BEN: Oh, yeah. You do get those.
+
+BHARAT: And you can see the intent of every call tracked in the call history — service call, emergency
+call, inquiry, and so on. You can also listen to the recording and assign calls to team members. That
+person then only sees the jobs you've assigned to them.
+
+BEN: Okay, so I can go into the dashboard and assign a call to a team member. Does the AI do the
+assigning, or do I?
+
+BHARAT: Currently you'll be doing the assigning while we understand the patterns. In future phases
+we can automate that piece as well.
+
+BEN: So we'd all need a login to the dashboard?
+
+BHARAT: Yes, everyone can get a login. You'll have admin access to see everything, and your guys
+will only see the jobs assigned to them.
+
+BEN: Okay. So once I've assigned something, the next step would be getting that information into
+Jobber — whether it's for a site visit or creating a quote. Is there an integration for that?
+
+BHARAT: I'm glad you highlighted that. We currently have integrations with Service Titan, HouseCall
+Pro, Service Fusion, and the Zen platform. With Jobber, we're in the process of building that
+integration — you can see it in the settings under integrations, listed as "coming soon."
+
+BEN: Yeah, that's great.
+
+BHARAT: And that actually leads us to our next agent. So far, the system can speak to the customer,
+understand the problem, and break it down. The next step is dispatching — we've already built a
+dispatching agent. Once it has information about where your electricians are, their skill sets, and their
+schedule from Jobber, it can pull that and automatically suggest assignments. You still press the final
+button before anything is confirmed, because you don't want a customer getting a notification before
+you're certain it's booked.
+
+BEN: Does Clara have its own calendar and scheduler?
+
+BHARAT: We currently don't, and we're not building one — that would put us in competition with the
+platforms we want to integrate with. We're building what we call a system of action that takes actions,
+rather than a system of record like a traditional CRM. We work on top of Jobber and similar platforms.
+
+  Beyond dispatching, we have agents for appointment reminders — calling customers ahead of
+scheduled jobs to confirm. Then reviews — after a job is done, calling customers for feedback and
+converting that into text for your website, Google, and Facebook. And then collections — for overdue
+invoices.
+
+BEN: Actually, that's something I'm working on too — making sure I'm getting deposits and cards on
+file.
+
+BHARAT: So you do have some pending invoices. Clara can integrate with your accounting system —
+and since your invoicing runs through Jobber, we have a way to work with that. Clara understands
+the invoices, calls the customer, reminds them of the job date, the invoice number, and the amount
+due. And it does this in different tones — friendly if it's just a few days late, more firm and professional
+if it's been months. All configurable.
+
+BEN: Can it actually make the follow-up calls? Because Jobber does its own follow-up emails, but
+sometimes it gets to the point where phone calls are needed.
+
+BHARAT: Absolutely. And it's not just calls — we have email and text as well. An omnichannel
+approach. All configurable.
+
+  Okay, I don't want to overwhelm you. What do you think of Clara Answers so far? Let's keep the
+conversation there unless you want to go deeper into any other agents.
+
+BEN: So far, that's good. The answers were great — spot on. I could have asked some more tactical
+things, like "how do you do this?" Sometimes customers want to know the technical details.
+
+BHARAT: Let's test that right now. Call again, ask it something as technical as you can. I want to see
+you break it.
+
+BEN: Yeah, okay. I'll try.
+
+--------------------------------------------------------------------------------
+[DEMO CALL — SECOND SIMULATION]
+--------------------------------------------------------------------------------
+
+BEN: I was wondering if you guys do hot tub installations.
+
+CLARA: Great question. We don't handle full hot tub installations, but we can definitely help with
+the electrical connections needed for a hot tub — running dedicated circuits, installing GFCI
+protection, and making sure your hot tub is safely wired to code. Would you like to chat about what
+you need done, or are you looking for a full install including the tub itself?
+
+BEN: I'm looking for the electrical installation.
+
+CLARA: Thanks for clarifying. We can help with the electrical side. Could you tell me a bit about your
+setup? For example, is the hot tub already in place, and do you know the electrical requirements for
+your specific model? That'll help us get you an accurate quote and timeline.
+
+BEN: The hot tub is located in the yard, 30 feet away from the house. It's a 60-amp, 240-volt circuit
+required. Can you tell me how they would wire that?
+
+CLARA: Absolutely. A quick overview of how a 60-amp, 240-volt circuit for a hot tub in your yard
+would typically be wired: First, an electrician would run a dedicated 240-volt line from your main
+electrical panel to the hot tub location. This usually involves installing a new 60-amp double-pole
+breaker in your main panel; running appropriately sized wire — usually 6 AWG copper, though this
+can vary based on distance and local code — through conduit from the panel to the hot tub; installing
+a GFCI-protected disconnect box within sight of the hot tub but at least five feet away for safety;
+and connecting the wiring from the disconnect to the hot tub's control panel. The exact method can
+vary depending on distance, local codes, and your yard layout. For a more detailed plan, we'd send
+a licensed electrician to assess your setup and provide a quote. Would you like to schedule a site
+visit or get an estimate?
+
+BEN: Can you tell me if they would be using conduit or cable to run underground?
+
+CLARA: Great question. For an outdoor hot tub installation, electricians almost always use conduit
+for underground runs. Here's a quick summary: they'll typically use PVC conduit — or sometimes
+metal depending on code — to protect the wires underground. The wires inside are usually individual
+THWN-2 conductors rated for wet locations. In some cases a special direct-burial cable like UF-B
+can be used, but for a 60-amp, 240-volt circuit, conduit with individual wires is the standard and
+safest method, especially for higher amperage and longer distances. Local codes may have specific
+requirements for burial depth and materials, so a licensed electrician will make sure everything is
+up to code. Would you like to set up a visit for a detailed quote?
+
+BEN: Can we also have a generator connected to run the hot tub?
+
+CLARA: Good question. Yes, it's possible to connect a generator to power your hot tub, but there are
+a few important things to consider. The generator must be large enough to handle the hot tub's load —
+at least 60-amps at 240V, which is a pretty substantial generator. You'll need a transfer switch or
+interlock system to safely switch between utility power and generator power. The wiring and setup
+must meet all local electrical codes. This kind of setup is a bit more complex, but our electricians
+can definitely help design and install it safely. Would you like to schedule a consultation to go over
+your options and get a quote?
+
+BEN: We don't need an appointment at this time, but I'm also wondering — if I get an electric vehicle
+charger wired in my garage, does it have to be run in aluminum or copper wire?
+
+CLARA: Great question. For an EV charger in your garage, you can use either copper or aluminum
+wire, but copper is generally preferred. It's more durable, has better conductivity, and is easier to
+work with, especially for shorter runs like most garages. Aluminum wire can be used for longer runs
+or larger amperage if local code allows, but it requires special connectors and antioxidant compound
+to ensure safe connections. Most electricians recommend copper for EV chargers unless there's a
+specific reason to use aluminum. If you'd like, we can have an electrician review your setup and
+recommend the best option for your home.
+
+BEN: What's better — incandescent lighting or LED lighting?
+
+CLARA: LED lighting is definitely the better choice for most situations. LEDs use much less energy
+than incandescent bulbs, so you'll save on your electric bill. They last much longer — often 10 to 20
+years compared to about a year for incandescents. LEDs produce less heat, making them safer and
+more efficient, and you can get them in a wide range of colors and brightness levels. Incandescent
+bulbs are mostly phased out due to lower efficiency and shorter lifespan. If you're thinking about
+upgrading your lighting, our club membership can get you discounts on LED upgrades and priority
+service. Want to hear more about that?
+
+BEN: No, thank you. That was pretty impressive. Yeah, I can't think of anything else.
+
+BHARAT: Ask it a random question about pizza.
+
+BEN: Oh — do you guys deliver pizza when you come to do the electrical quote?
+
+CLARA: I wish we did! Sadly, no pizza delivery with our electrical quotes — just top-notch service
+and maybe a few good jokes from our electricians. If you ever need anything else, though, we're
+always here to help. Thanks so much for calling today. Hope you have a great day ahead.
+
+BEN: Thanks. You as well. Oh, one more question. Oh, I forgot what it was.
+
+CLARA: No worries at all. If it comes back to you, just give us a call anytime. Have a fantastic day.
+
+BEN: All right, you too. Thanks.
+
+--------------------------------------------------------------------------------
+[END OF DEMO CALL — SECOND SIMULATION]
+--------------------------------------------------------------------------------
+
+BEN: The pizza delivery was kind of fun.
+
+BHARAT: Yeah! And the funny thing is we didn't even train it on that. It picked it up on its own. And
+notice how the conversation started with you asking about a hot tub installation — something that
+company doesn't typically do — but rather than just saying "we don't do that, call someone else,"
+it navigated the conversation and found the potential electrical job within it. That's how it's trained:
+to find where the potential is, rather than just deflecting.
+
+BEN: Wow. Yeah.
+
+BHARAT: And just to note — the way it's speaking right now is set up for demo purposes. We can
+modify the length of the answers, the speaking style, the speed, even the pauses. All 100%
+customizable. And we've also trained it to be a bit of a salesman — it keeps throwing in those club
+membership mentions. That's a little upsell built in, but it's completely toggleable. Just wanted to
+show you its full capabilities.
+
+BEN: That's pretty cool. Yeah.
+
+BHARAT: It runs at all times, available around the clock. If after 6 PM Ben's not available, the system
+can be set to take all calls and schedule jobs for the following morning after 8 AM, or route to a
+specific team member. We can have whoever's on call plugged into the system so emergency calls
+go straight to that person. It works as a dispatch as well — when a call comes in, it can forward to
+you or anyone on the team, however you program it.
+
+  One more thing it does: if someone calls with an emergency, it automatically escalates the call to
+you directly — no waiting for it to gather information first.
+
+BEN: Okay. So generally, it talks to the person, takes the information, then sends me a notification
+— email and text — and I can log into the dashboard to see all the details, and then figure out what
+to do with it from there?
+
+BHARAT: That's one flow. Yes.
+
+BEN: And if someone asks to talk to me directly — can it just forward the call?
+
+BHARAT: Multiple scenarios. For example, if your wife calls, you don't want that screened — we can
+configure certain personal numbers to go straight through. Same for certain key customers you always
+want direct access to you. For everyone else, the system can ask a qualifying question before routing.
+Unless you want everyone who asks for Ben to just go straight to you — we can do that too, though
+it defeats a bit of the purpose.
+
+BEN: Yeah. And how does this integrate with my phone? My cell number is still my personal number
+and my business number. How do I get Clara to answer calls that come to this phone?
+
+BHARAT: We can set up a call forwarding so that all calls are forwarded to Clara. And we can also
+provide you with a fresh number for the business at no additional cost — a Google Voice number, for
+instance. Fairly simple to set up.
+
+BEN: So would we set it up so Clara answers every call that comes to my business phone number?
+
+BHARAT: Yes, with some exceptions if you want certain calls to go straight through.
+
+BEN: So I could still use this phone, Clara generally answers business calls, except for the ones I
+say to let ring through directly. And if someone calls and Clara answers — I won't even know in real
+time, just afterward when I get the notification?
+
+BHARAT: That is correct.
+
+BEN: Yeah. So my phone won't ring. The call goes to Clara, and Clara decides whether to let it
+escalate to me. That's pretty cool.
+
+BHARAT: Exactly. And we'll have the forwarding facilitated for you.
+
+  Now, I don't want to get too far off track, but this is all the office side. We have a comprehensive
+solution for your field guys as well. You mentioned that when they're out on a job they sometimes
+call you with questions about equipment or complex situations. We can optimize that workflow too.
+
+  Think of it as having a master electrician virtually with your guys at all times. They can ask it
+questions and it responds. On top of that, it acts as an assistant — reminding them of checklists,
+flagging upsell opportunities they might miss when they're focused on the work, and even helping
+troubleshoot complex equipment that normally you'd call the manufacturer's support line for. Those
+three functions combined are what we call our Field Copilot.
+
+  It also listens to the conversations between your guys and the customer, and provides a debrief
+at the end: here's what went well, here's what could be improved.
+
+  And if your guys take a picture of something they're not sure about on-site, it can analyze the
+image and tell them what needs to be done.
+
+BEN: Yeah, you're right — that is overwhelming. But it's kind of cool.
+
+BHARAT: And the idea of Clara, Ben, is to be a one-stop AI shop. Any question comes to us and we
+mostly have a solution for it. If we don't, we'll build it. And everything we build is specifically for the
+trades — that's the biggest edge we have over other systems.
+
+BEN: Very cool. Yeah, that was great. Really neat.
+
+BHARAT: So let's talk about next steps. Would this be something you think could be helpful and
+beneficial for your business?
+
+BEN: I think it could. It'd be great to have it answer some calls. We definitely get enough calls coming
+in.
+
+BHARAT: What's the rough volume?
+
+BEN: It varies. I probably get 10 to 20 calls a week from just general customers. Most of my calls
+are from my regular contractors. And then I get all the extra sales calls too. So maybe 20 to 50 calls
+a week? It's tough to say exactly.
+
+BHARAT: No one has an exact idea — and why would you count? But with this system, you'll actually
+be able to calculate that and optimize. It'd be pretty cool to have Clara answer most of the business
+calls. You could have your regular key contacts go straight through to you, and let Clara handle
+everyone else, summarize the call, and you call back when it makes sense.
+
+BEN: Absolutely. I've got a couple of contractors who are kind of a pain — it would actually be okay
+to have them talk to Clara. Clara can summarize what they had to say and then I can call them back.
+I'd definitely configure it to answer the general calls. I'd give it quite a few numbers to just let go
+through, and I'd give my personal cell to the key guys.
+
+BHARAT: Great. So here are the next steps. I'll introduce you to two people on our onboarding team
+who will be responsible for understanding your workflow and building Clara Answers around it — your
+working hours, the kinds of jobs you do and don't do, your location, your service area. After that,
+we'll give you a test number to call and verify the system is responding correctly. Once you're
+satisfied, we go live.
+
+BEN: Sounds good. What's the cost?
+
+BHARAT: Think of the cost of having a full-time person doing this for you. This is a fraction of that.
+The most basic plan is $249 per month, which covers 500 minutes. That gives you quite a lot of
+minutes, and the sales filtration we're doing doesn't count against that. We can start on as short as
+a three-month plan.
+
+BEN: I would like to try it out. I kind of like the idea of giving it a three-month try.
+
+BHARAT: You'll be blown away. Here's one stat from just last week — it was New Year's, and nobody
+wants to be working on the eve. Clara was activated and got used more than ever. Emergency calls
+kept coming in over the holiday. Clara responded to all of them and booked everything for January 4th,
+when the team started back up. When the office opened, the calendar was packed — jobs lined up
+at 9 AM, 10 AM, 12 PM — all ready to go. You don't even need to be there; someone is working
+around the clock, and the schedule is essentially ready when you walk in.
+
+BEN: Got it. And on the booking — Clara can book just a site visit, or it can book an actual job?
+Some tasks are going to be a two-hour job, some are going to be eight hours. Can Clara filter through
+those?
+
+BHARAT: It'll be trained on that. It will ask qualifying questions and analyze whether a full booking or
+a site visit is appropriate. Just to clarify — we did have a direct booking feature that we've rolled back.
+The reason is that if you have something on your calendar from 1 to 3 PM, we can't be certain that
+ends at exactly 3. It might run to 4. So rather than booking hard appointments, Clara will analyze your
+calendar and propose an available time. It says "let's book something from 4 — are you okay with
+that?" That information comes to you, and you make the final call.
+
+BEN: Right. So Clara doesn't confirm an appointment itself, but it can suggest a time?
+
+BHARAT: Yes. Though if you want Clara to give a confirmation for something like a site visit where
+you control the schedule, we can configure that.
+
+BEN: That makes sense. My guys are in a different calendar in Jobber, so Clara won't have perfect
+visibility there.
+
+BHARAT: Exactly. Wherever you're certain, Clara can be certain. Wherever there's variability in the
+field, we hold on final confirmation. That's why the email and dashboard show preferred job dates
+and times — you make the final booking decision.
+
+BEN: Good stuff.
+
+BHARAT: Great. So let me walk through the next steps quickly. I'll send over a DocuSign contract
+with all the details, and I need a few pieces of info from you. I'll also schedule a kickoff call — a
+30-minute intro with the one or two onboarding managers who will be your dedicated points of
+contact. They'll understand your workflows and configure Clara accordingly. We work in blocks so
+you can review and provide feedback at each stage.
+
+  Can I get the company's full name?
+
+BEN: I'm still a sole proprietor, but I'm going to get incorporated this year.
+
+BHARAT: You're already starting the change. Okay, I have the company name. I'll also need your
+number, email, full name, and billing address.
+
+BEN: Yeah, no problem.
+
+BHARAT: Got it. And when do you want to do the kickoff call?
+
+BEN: If I can sign the paperwork today, tomorrow should work. Kickoff call — how long do we need?
+
+BHARAT: We'll wrap it up in 30 minutes. It's just an introductory call.
+
+BEN: Tomorrow around noon should be good.
+
+BHARAT: Perfect — that works for us as well. I've just sent you a calendar invite. Ben, could you
+confirm it went to Ben@BensElectricSolutionsTeam.com?
+
+BEN: Yeah, it's there now.
+
+BHARAT: Great. Now, do you have a credit card handy? Once the paperwork is executed, the card
+will be charged. Just to reconfirm — you're looking at the starter plan at $249, which offers 500
+minutes, on a three-month plan. That's $249 times three — roughly $750 — plus 5% GST in Canada.
+All up front for the three months.
+
+  And one thing I'll do for you: the contract will have a 12-month timeline, so if you decide to continue
+after three months — which I'm confident you will — we'll lock in this same price for you. Our pricing
+may change in three or five months, but you won't be affected.
+
+BEN: I can give you my card right now. Name on the card is Ben Penoyer.
+
+BHARAT: Great. And the card number?
+
+BEN: 5526-1220-0052-4781.
+
+BHARAT: Expiration?
+
+BEN: 03/29.
+
+BHARAT: And the CVV?
+
+BEN: 641.
+
+BHARAT: Perfect. In the next 15 minutes you'll receive a DocuSign email. Go through the contract —
+it's very basic, shouldn't take long — and once it's executed, we'll see you on the kickoff call
+tomorrow. I'll loop in the onboarding specialist once the paperwork is completed.
+
+BEN: Terrific.
+
+BHARAT: Awesome. Any questions for me, Ben?
+
+BEN: No, not right now. But thank you so much.
+
+BHARAT: I had a very good time talking to you, and we're really excited to show you what this can
+do. In the three months you'll see a lot of revenue coming in that you didn't even know you were
+missing. Looking forward to growing together, Ben. See you tomorrow on the kickoff call.
+
+BEN: You bet. Thanks very much, Bharat.
+
+BHARAT: Thank you. Have a good day. Bye.
+
+BEN: You too.
+
+BHARAT: Bye. Ending the meeting now.
+
+================================================================================
+END OF TRANSCRIPT
+================================================================================

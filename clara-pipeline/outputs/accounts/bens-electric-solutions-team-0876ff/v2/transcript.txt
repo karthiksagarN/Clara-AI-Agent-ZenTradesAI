@@ -1,0 +1,218 @@
+================================================================================
+ONBOARDING CALL TRANSCRIPT
+Clara AI — Onboarding Call with Ben (Ben's Electric Solutions)
+================================================================================
+
+
+PARTICIPANTS:
+  - Priya       (Clara AI, Onboarding Specialist)
+  - Ben         (Owner, Ben's Electric Solutions)
+
+--------------------------------------------------------------------------------
+CALL TRANSCRIPT
+--------------------------------------------------------------------------------
+
+PRIYA: Hey Ben, thanks for hopping on. I'm Priya — I'll be your onboarding specialist. Bharat
+mentioned you had a great demo call and you're excited to get Clara up and running.
+
+BEN: Yeah, definitely. I signed the paperwork yesterday. Ready to go.
+
+PRIYA: Perfect. So what we'll do today is go through the specifics of how you want Clara to handle
+your calls. I've got notes from your demo, but I want to make sure everything is exactly right
+before we build your agent. This should take about 30 minutes. Sound good?
+
+BEN: Sounds great.
+
+PRIYA: Okay, let's start with the basics. I have your company name as Ben's Electric Solutions.
+Is that the official name?
+
+BEN: Yeah, Ben's Electric Solutions. I'm still a sole proprietor but we operate under that name.
+
+PRIYA: Great. And your office — do you have a physical office address?
+
+BEN: We don't have a storefront. I work out of my home. But the business address we use is
+47 Harvest Gold Manor NE, Calgary, Alberta, T3K 4R3.
+
+PRIYA: Got it. And your main contact email?
+
+BEN: Ben@BensElectricSolutionsTeam.com. That's the one I check all the time.
+
+PRIYA: And the best phone number for you?
+
+BEN: My cell is 403-975-1773. That's my business line too — same number.
+
+PRIYA: Now let's talk business hours. When are you officially open for business?
+
+BEN: Monday through Friday, 7:30 AM to 4:30 PM. Mountain time — we're in Calgary, so that's
+Mountain Standard Time.
+
+PRIYA: 7:30 to 4:30, Monday through Friday, Mountain time. Perfect. What about Saturdays?
+
+BEN: We don't officially work Saturdays, but sometimes I'll take a call if it's one of my regular
+contractors. It's not a regular thing though.
+
+PRIYA: So we'll set it as closed on weekends, but we can configure selected contacts to ring
+through. Speaking of which — let's talk about your call handling preferences.
+
+BEN: Sure.
+
+PRIYA: During business hours — so Monday through Friday, 7:30 to 4:30 — when a customer calls,
+what do you want Clara to do?
+
+BEN: I want Clara to answer every call. Greet them, find out what they need, take their name and
+number, and then let me know. I'll call them back. I don't need Clara to transfer calls to me live
+during business hours unless it's one of my key guys.
+
+PRIYA: Got it. So the default is: Clara takes the message and you call back. But for certain contacts
+you want direct transfer?
+
+BEN: Yeah. My two main general contractors — Shelley Manley from G&M Pressure Washing, and
+my property manager Dave Thompson who runs the gas stations. If either of them calls, just put
+them straight through to me.
+
+PRIYA: Do you have their numbers so we can whitelist them?
+
+BEN: Shelley is 403-870-8494 and Dave is 403-612-7789.
+
+PRIYA: Got it. Anyone else who should always ring through?
+
+BEN: My wife, Amanda. Her number is 403-555-0142. And my operations manager Cole — he's
+403-555-0198.
+
+PRIYA: Perfect. Now let's talk about after hours. After 4:30 PM and on weekends — what happens?
+
+BEN: Clara should answer and let the caller know we're closed. Take a message with their name,
+number, and what they need. Let them know someone will call them back the next business day.
+
+PRIYA: What about emergencies after hours?
+
+BEN: Good question. So for my regular contractors and property managers, if they have an
+emergency, I do want to get that call. Like Dave with the gas stations — if a pump goes down or
+there's a power issue, that's an emergency and I need to know right away.
+
+PRIYA: So how do we define an emergency for your business?
+
+BEN: An emergency would be: complete power loss at a commercial property, any situation
+where there's a safety hazard like exposed wiring or sparking, gas station pump electrical failures
+for Dave's properties specifically, and fire alarm system malfunctions. Those are things where
+someone could get hurt or a business can't operate.
+
+PRIYA: That's very clear. So for those emergency situations after hours, what should Clara do?
+
+BEN: Try to reach me first on my cell — 403-975-1773. If I don't answer within, say, 30 seconds,
+try my operations manager Cole at 403-555-0198. If Cole doesn't answer, take a detailed message
+and text both of us. Make sure the caller knows we'll get back to them as fast as possible.
+
+PRIYA: How long should we try each number before moving to the next?
+
+BEN: Give it about 30 seconds each. If nobody picks up after trying both of us, just take the
+message and assure them it's flagged as urgent.
+
+PRIYA: And for non-emergency after-hours calls?
+
+BEN: Just take a message. No need to call me or Cole. We'll handle it the next business day.
+
+PRIYA: Got it. Now let's talk about the services you offer. From the demo, I have: service calls,
+renovations, troubleshooting, EV charger installations, hot tub hookups, panel changes, custom
+homes, and tenant improvements. Is that accurate?
+
+BEN: Yeah, that covers most of it. You can add lighting upgrades and electrical inspections too.
+We get calls for those fairly often. Oh, and generator installations — we've started doing more
+of those lately.
+
+PRIYA: So the full list is: service calls, troubleshooting, renovations, EV charger installations,
+hot tub hookups, panel changes, custom homes and new construction, tenant improvements,
+lighting upgrades, electrical inspections, and generator installations. Anything you definitely
+don't do?
+
+BEN: We don't do gemstone lights anymore — decided it wasn't worth it. And we don't do solar
+panel installations. If someone asks about solar, refer them elsewhere.
+
+PRIYA: Noted. Now let's talk about your CRM integration. You mentioned Jobber in the demo.
+
+BEN: Yeah, Jobber is our CRM. Everything runs through Jobber — scheduling, invoicing, customer
+records. I know Bharat said the Jobber integration is coming soon?
+
+PRIYA: That's right. The direct Jobber integration isn't live yet, but what Clara will do is capture all
+the call information and send it to you via email and through the dashboard. When the integration
+is ready, we'll connect the two. For now, you'll need to manually enter jobs into Jobber from the
+Clara dashboard.
+
+BEN: That's fine. My operations manager Cole can handle that.
+
+PRIYA: One more thing — when Clara transfers a call to you and you don't pick up, what should she
+say to the caller?
+
+BEN: Something like "I'm sorry, I wasn't able to reach Ben directly. Let me take your information
+and I'll make sure he calls you back as soon as possible."
+
+PRIYA: And for emergency calls where the transfer fails — both you and Cole don't pick up?
+
+BEN: Say something like "I understand this is urgent. I've logged this as an emergency and both
+Ben and Cole will receive an urgent notification. Someone will call you back within 30 minutes."
+
+PRIYA: That's great. I want to confirm the transfer settings — when attempting to connect a caller
+to you or Cole, how long should Clara try before considering it a failed transfer?
+
+BEN: I'd say try for about 30 seconds. Two rings basically — if I'm going to answer, I'll answer
+within that.
+
+PRIYA: And if the first attempt fails, should Clara retry?
+
+BEN: Try once more, then move on. So two attempts max.
+
+PRIYA: Perfect. Let me also ask about the call transfer itself. Will Clara be replacing your current
+phone setup entirely, or just handling certain calls?
+
+BEN: Clara should answer all incoming calls to our business number. I'm going to set up call
+forwarding from my cell to Clara's number. But the key contacts I mentioned — Shelley, Dave,
+Amanda, and Cole — those should bypass Clara and ring straight to my phone.
+
+PRIYA: Understood. Any special instructions for how Clara should handle the conversation? Like
+how formal or casual should she be?
+
+BEN: We're pretty casual in this industry. Professional but friendly. Don't be too stiff — our
+customers are regular people. Keep it natural.
+
+PRIYA: And one more thing — your service area. Where do you operate?
+
+BEN: Greater Calgary area. We'll go as far as Airdrie to the north, Okotoks to the south, and
+Cochrane to the west. But generally Calgary and the surrounding communities.
+
+PRIYA: Perfect. Let me summarize what we've confirmed today:
+
+  - Company: Ben's Electric Solutions
+  - Address: 47 Harvest Gold Manor NE, Calgary, AB T3K 4R3
+  - Business hours: Monday – Friday, 7:30 AM – 4:30 PM Mountain Time
+  - During hours: Clara takes messages, you call back. Whitelisted contacts go straight through.
+  - After hours non-emergency: take message, next business day callback
+  - After hours emergency: try Ben first, then Cole, then take detailed message
+  - Emergency definition: power loss, safety hazards, gas station pump failures, fire alarm issues
+  - Transfer timeout: 30 seconds, max 2 attempts
+  - Services: full electrical — service calls, renovations, EV chargers, hot tubs, panels, generators,
+    inspections, lighting, custom homes, tenant improvements
+  - Don't do: gemstone lights, solar panels
+  - CRM: Jobber (manual entry for now)
+  - Style: professional but friendly and casual
+
+Does all of that look right?
+
+BEN: That's perfect. You guys are thorough.
+
+PRIYA: We want to make sure Clara sounds like she belongs at your company. I'll get this
+configured and we'll have a test number ready for you in about 48 hours. You'll call it, test it out,
+and give us any feedback before we go live.
+
+BEN: Sounds great. Looking forward to it.
+
+PRIYA: Awesome. Thanks for your time, Ben. We'll be in touch very soon.
+
+BEN: Thanks, Priya. Have a good one.
+
+PRIYA: You too. Bye!
+
+BEN: Bye.
+
+================================================================================
+END OF TRANSCRIPT
+================================================================================

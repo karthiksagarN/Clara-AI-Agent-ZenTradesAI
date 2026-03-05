@@ -1,0 +1,83 @@
+{
+  "account_id": "bens-electric-solutions-team-0876ff",
+  "company_name": "Ben's Electric Solutions",
+  "version_from": "v1",
+  "version_to": "v2",
+  "timestamp": "2026-03-05T11:33:40.826785",
+  "total_changes": 9,
+  "changes": [
+    {
+      "field": "company_name",
+      "action": "modified",
+      "old_value": "Bens Electric Solutions Team",
+      "new_value": "Ben's Electric Solutions",
+      "reason": "confirmed during onboarding"
+    },
+    {
+      "field": "contact_info",
+      "action": "modified",
+      "old_value": {
+        "name": "Ben Penoyer",
+        "email": "Ben@BensElectricSolutionsTeam.com",
+        "phone_number": "",
+        "billing_address": ""
+      },
+      "new_value": null,
+      "reason": "updated_during_onboarding"
+    },
+    {
+      "field": "business_hours",
+      "action": "modified",
+      "old_value": null,
+      "new_value": null,
+      "reason": "updated_during_onboarding"
+    },
+    {
+      "field": "emergency_definition",
+      "action": "modified",
+      "old_value": null,
+      "new_value": "power loss, safety hazards, gas station pump failures, fire alarm issues",
+      "reason": "defined during onboarding"
+    },
+    {
+      "field": "transfer_timeout",
+      "action": "modified",
+      "old_value": null,
+      "new_value": 30,
+      "reason": "confirmed during onboarding"
+    },
+    {
+      "field": "services",
+      "action": "modified",
+      "old_value": null,
+      "new_value": null,
+      "reason": "updated_during_onboarding"
+    },
+    {
+      "field": "after_hours_message",
+      "action": "added",
+      "old_value": null,
+      "new_value": "We're closed. Someone will call you back the next business day.",
+      "reason": "confirmed during onboarding"
+    },
+    {
+      "field": "emergency_after_hours_action",
+      "action": "added",
+      "old_value": null,
+      "new_value": "try Ben first, then Cole, then take detailed message",
+      "reason": "defined during onboarding"
+    },
+    {
+      "field": "transfer_timeout_message",
+      "action": "added",
+      "old_value": null,
+      "new_value": "I'm sorry, I wasn't able to reach Ben directly. Let me take your information and I'll make sure he calls you back as soon as possible.",
+      "reason": "confirmed during onboarding"
+    }
+  ],
+  "summary": {
+    "fields_modified": 6,
+    "fields_added": 3,
+    "fields_updated": 0
+  }
+}
