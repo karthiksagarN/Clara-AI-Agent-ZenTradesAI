@@ -22,7 +22,7 @@ logger = setup_logging("run_all")
 # Update this when you have all 5 pairs
 ACCOUNT_MAPPING = {
     # Demo files → company name
-    "bens_electric_demo": "Ben's Electric",
+    "bens_electric_demo": "Ben's Electric Solutions",
     # Add more as recordings become available:
     # "company2_demo": "Company 2 Name",
     # "company3_demo": "Company 3 Name",
@@ -33,7 +33,7 @@ ACCOUNT_MAPPING = {
 # Mapping of onboarding files to their corresponding demo account
 ONBOARDING_MAPPING = {
     # Onboarding filename stem → company name (must match demo)
-    "bens_electric_onboarding": "Ben's Electric",
+    "bens_electric_onboarding": "Ben's Electric Solutions",
     # Add more:
     # "company2_onboarding": "Company 2 Name",
 }

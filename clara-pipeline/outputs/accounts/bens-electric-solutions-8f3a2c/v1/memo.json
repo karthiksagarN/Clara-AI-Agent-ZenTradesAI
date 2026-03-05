@@ -1,0 +1,73 @@
+{
+  "account_id": "bens-electric-solutions-8f3a2c",
+  "company_name": "Ben's Electric Solutions",
+  "contact_name": "Ben Penoyer",
+  "contact_email": "Ben@BensElectricSolutionsTeam.com",
+  "contact_phone": "403-975-1773",
+  "business_type": "Electrical contractor",
+  "business_hours": {
+    "days": "Monday-Friday",
+    "start": null,
+    "end": null,
+    "timezone": null
+  },
+  "office_address": null,
+  "services_supported": [
+    "Service calls",
+    "Troubleshooting",
+    "Renovations",
+    "EV charger installations",
+    "Hot tub hookups",
+    "Panel changes",
+    "Custom homes / new construction",
+    "Tenant improvements",
+    "Odd jobs / misc electrical"
+  ],
+  "emergency_definition": [
+    "Emergency calls from regular property managers (e.g., gas station pump failures)",
+    "Emergency calls from regular general contractors"
+  ],
+  "emergency_routing_rules": {
+    "primary_contact": "Ben",
+    "primary_phone": "403-975-1773",
+    "secondary_contact": null,
+    "secondary_phone": null,
+    "fallback_action": "Take message, Ben will call back",
+    "escalation_order": [
+      "Ben at 403-975-1773"
+    ]
+  },
+  "non_emergency_routing_rules": {
+    "action": "Take message and notify Ben via email and text",
+    "route_to": "Ben (owner)",
+    "message": "Standard calls: Clara takes info, Ben calls back; some key contacts ring through directly"
+  },
+  "call_transfer_rules": {
+    "timeout_seconds": null,
+    "max_retries": null,
+    "failure_message": null,
+    "failure_action": null
+  },
+  "integration_constraints": [
+    "Uses Jobber as CRM — direct integration not yet available",
+    "Jobber handles scheduling, invoicing, and customer records",
+    "Manual entry from Clara dashboard to Jobber required for now"
+  ],
+  "after_hours_flow_summary": "Ben is the only on-call person. Takes emergency calls from regular contractors and property managers. Non-emergency callers after hours are told to call back during business hours or leave a message.",
+  "office_hours_flow_summary": "Clara answers all calls during business hours. Takes caller info and notifies Ben. Some whitelisted contacts (key contractors, wife) ring through to Ben directly. Ben calls back non-whitelisted callers.",
+  "questions_or_unknowns": [
+    "Exact business hours (start/end times) not confirmed during demo",
+    "Timezone not explicitly stated (assumed Calgary = Mountain Time)",
+    "Office address not discussed",
+    "Transfer timeout preferences not discussed",
+    "Transfer failure message not specified",
+    "Secondary emergency contact not identified (operations manager mentioned but not named)",
+    "Complete list of whitelisted direct-ring contacts not finalized",
+    "Service area boundaries not defined"
+  ],
+  "notes": "Ben is a sole proprietor with 30 years of electrical experience, running his own business for 8 years. Currently has 3 journeymen, 1 apprentice, and uses subcontractors for overflow. Bringing on an operations manager. Previously tried a virtual assistant (real person) and a business phone system, both unsuccessfully. Uses Jobber CRM. Gets 20-50 calls/week. Signed up for the starter plan ($249/mo, 500 minutes, 3-month trial). Does not do gemstone lights. Service area is Calgary-based.",
+  "version": "v1",
+  "created_at": "2025-03-05T10:00:00",
+  "updated_at": null,
+  "source_transcript": "bens_electric_demo.txt"
+}

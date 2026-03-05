@@ -1,0 +1,113 @@
+{
+  "account_id": "bens-electric-solutions-8f3a2c",
+  "company_name": "Ben's Electric Solutions",
+  "version_from": "v1",
+  "version_to": "v2",
+  "timestamp": "2025-03-05T11:00:00",
+  "total_changes": 14,
+  "changes": [
+    {
+      "field": "business_hours.start",
+      "action": "modified",
+      "old_value": null,
+      "new_value": "7:30 AM",
+      "reason": "Confirmed during onboarding — exact start time specified"
+    },
+    {
+      "field": "business_hours.end",
+      "action": "modified",
+      "old_value": null,
+      "new_value": "4:30 PM",
+      "reason": "Confirmed during onboarding — exact end time specified"
+    },
+    {
+      "field": "business_hours.timezone",
+      "action": "modified",
+      "old_value": null,
+      "new_value": "Mountain Time (MST)",
+      "reason": "Confirmed during onboarding — Calgary is Mountain Time"
+    },
+    {
+      "field": "office_address",
+      "action": "added",
+      "old_value": null,
+      "new_value": "47 Harvest Gold Manor NE, Calgary, Alberta, T3K 4R3",
+      "reason": "Newly provided during onboarding"
+    },
+    {
+      "field": "services_supported",
+      "action": "modified",
+      "old_value": ["Service calls", "Troubleshooting", "Renovations", "EV charger installations", "Hot tub hookups", "Panel changes", "Custom homes / new construction", "Tenant improvements", "Odd jobs / misc electrical"],
+      "new_value": ["Service calls", "Troubleshooting", "Renovations", "EV charger installations", "Hot tub hookups", "Panel changes", "Custom homes / new construction", "Tenant improvements", "Lighting upgrades", "Electrical inspections", "Generator installations"],
+      "reason": "Onboarding added: lighting upgrades, electrical inspections, generator installations. Removed: odd jobs (too vague)"
+    },
+    {
+      "field": "emergency_definition",
+      "action": "modified",
+      "old_value": ["Emergency calls from regular property managers (e.g., gas station pump failures)", "Emergency calls from regular general contractors"],
+      "new_value": ["Complete power loss at a commercial property", "Safety hazards — exposed wiring, sparking", "Gas station pump electrical failures (Dave Thompson's properties)", "Fire alarm system malfunctions"],
+      "reason": "Onboarding provided specific, actionable emergency definitions replacing vague demo assumptions"
+    },
+    {
+      "field": "emergency_routing_rules.secondary_contact",
+      "action": "added",
+      "old_value": null,
+      "new_value": "Cole (Operations Manager)",
+      "reason": "Newly identified during onboarding — Cole is secondary emergency contact"
+    },
+    {
+      "field": "emergency_routing_rules.secondary_phone",
+      "action": "added",
+      "old_value": null,
+      "new_value": "403-555-0198",
+      "reason": "Newly provided during onboarding"
+    },
+    {
+      "field": "emergency_routing_rules.escalation_order",
+      "action": "modified",
+      "old_value": ["Ben at 403-975-1773"],
+      "new_value": ["Ben at 403-975-1773", "Cole at 403-555-0198"],
+      "reason": "Onboarding added Cole as secondary escalation contact"
+    },
+    {
+      "field": "emergency_routing_rules.fallback_action",
+      "action": "modified",
+      "old_value": "Take message, Ben will call back",
+      "new_value": "Take detailed message and text both Ben and Cole. Assure caller it is flagged as urgent.",
+      "reason": "Onboarding provided more specific fallback — text both contacts"
+    },
+    {
+      "field": "call_transfer_rules.timeout_seconds",
+      "action": "added",
+      "old_value": null,
+      "new_value": 30,
+      "reason": "Confirmed during onboarding — 30 seconds per attempt"
+    },
+    {
+      "field": "call_transfer_rules.max_retries",
+      "action": "added",
+      "old_value": null,
+      "new_value": 2,
+      "reason": "Confirmed during onboarding — try once more then move on"
+    },
+    {
+      "field": "call_transfer_rules.failure_message",
+      "action": "added",
+      "old_value": null,
+      "new_value": "I'm sorry, I wasn't able to reach Ben directly. Let me take your information and I'll make sure he calls you back as soon as possible.",
+      "reason": "Ben specified exact wording during onboarding"
+    },
+    {
+      "field": "call_transfer_rules.failure_action",
+      "action": "added",
+      "old_value": null,
+      "new_value": "Collect caller details (name, number, description) and create follow-up notification",
+      "reason": "Confirmed during onboarding"
+    }
+  ],
+  "summary": {
+    "fields_modified": 6,
+    "fields_added": 8,
+    "fields_updated": 0
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "account_id": "bens-electric-solutions-8f3a2c",
+  "company_name": "Ben's Electric Solutions",
+  "contact_name": "Ben Penoyer",
+  "contact_email": "Ben@BensElectricSolutionsTeam.com",
+  "contact_phone": "403-975-1773",
+  "business_type": "Electrical contractor",
+  "business_hours": {
+    "days": "Monday-Friday",
+    "start": "7:30 AM",
+    "end": "4:30 PM",
+    "timezone": "Mountain Time (MST)"
+  },
+  "office_address": "47 Harvest Gold Manor NE, Calgary, Alberta, T3K 4R3",
+  "services_supported": [
+    "Service calls",
+    "Troubleshooting",
+    "Renovations",
+    "EV charger installations",
+    "Hot tub hookups",
+    "Panel changes",
+    "Custom homes / new construction",
+    "Tenant improvements",
+    "Lighting upgrades",
+    "Electrical inspections",
+    "Generator installations"
+  ],
+  "emergency_definition": [
+    "Complete power loss at a commercial property",
+    "Safety hazards — exposed wiring, sparking",
+    "Gas station pump electrical failures (Dave Thompson's properties)",
+    "Fire alarm system malfunctions"
+  ],
+  "emergency_routing_rules": {
+    "primary_contact": "Ben",
+    "primary_phone": "403-975-1773",
+    "secondary_contact": "Cole (Operations Manager)",
+    "secondary_phone": "403-555-0198",
+    "fallback_action": "Take detailed message and text both Ben and Cole. Assure caller it is flagged as urgent.",
+    "escalation_order": [
+      "Ben at 403-975-1773",
+      "Cole at 403-555-0198"
+    ]
+  },
+  "non_emergency_routing_rules": {
+    "action": "Take message with name, number, and description of need. Inform caller someone will call back next business day.",
+    "route_to": "Ben (owner) — callbacks only, no live transfer for general callers",
+    "message": "During business hours: Clara takes info, Ben calls back. After hours: take message, next business day callback."
+  },
+  "call_transfer_rules": {
+    "timeout_seconds": 30,
+    "max_retries": 2,
+    "failure_message": "I'm sorry, I wasn't able to reach Ben directly. Let me take your information and I'll make sure he calls you back as soon as possible.",
+    "failure_action": "Collect caller details (name, number, description) and create follow-up notification"
+  },
+  "integration_constraints": [
+    "Uses Jobber as CRM — direct integration not yet available",
+    "Jobber handles scheduling, invoicing, and customer records",
+    "Manual entry from Clara dashboard to Jobber required until integration is live",
+    "Operations manager Cole handles data entry from dashboard to Jobber"
+  ],
+  "after_hours_flow_summary": "Clara answers and informs caller office is closed. Business hours Mon-Fri 7:30 AM - 4:30 PM MT. Non-emergency: take message, next business day callback. Emergency: try Ben first (30s), then Cole (30s), then take detailed message and text both. Assure caller of urgent follow-up.",
+  "office_hours_flow_summary": "Clara answers all incoming calls. Greet caller, identify needs, collect name and number. Whitelisted contacts (Shelley Manley 403-870-8494, Dave Thompson 403-612-7789, Amanda 403-555-0142, Cole 403-555-0198) bypass Clara and ring through directly to Ben. All others: Clara takes message, Ben calls back.",
+  "questions_or_unknowns": [
+    "Does Ben want Saturday availability for whitelisted contacts beyond the current bypass setup?",
+    "Exact response time commitment for emergency callbacks (mentioned 30 minutes — is this a promise or estimate?)",
+    "Solar panel referral — should Clara recommend a specific company or just say 'we don't offer that'?"
+  ],
+  "notes": "Ben is a sole proprietor with 30 years of electrical experience, running his own business for 8 years. Currently has 3 journeymen, 1 apprentice, and uses subcontractors for overflow. Operations manager Cole handles data entry. Previously tried a virtual assistant (real person) and a business phone system, both unsuccessfully. Uses Jobber CRM. Gets 20-50 calls/week. Service area: Greater Calgary — Airdrie (north), Okotoks (south), Cochrane (west). Does NOT do: gemstone lights, solar panels. Style: professional but friendly and casual. Signed up for starter plan ($249/mo, 500 min, 3-month trial).",
+  "version": "v2",
+  "created_at": "2025-03-05T10:00:00",
+  "updated_at": "2025-03-05T11:00:00",
+  "source_transcript": "bens_electric_onboarding.txt"
+}

@@ -1,0 +1,46 @@
+{
+  "run_timestamp": "2025-03-05T11:00:00",
+  "pipeline_a_results": [
+    {
+      "status": "success",
+      "file": "bens_electric_demo.txt",
+      "account_id": "bens-electric-solutions-8f3a2c",
+      "company_name": "Ben's Electric Solutions",
+      "v1_dir": "outputs/accounts/bens-electric-solutions-8f3a2c/v1",
+      "memo_path": "outputs/accounts/bens-electric-solutions-8f3a2c/v1/memo.json",
+      "agent_spec_path": "outputs/accounts/bens-electric-solutions-8f3a2c/v1/agent_spec.json",
+      "transcript_path": "outputs/accounts/bens-electric-solutions-8f3a2c/v1/transcript.txt",
+      "validation_warnings": [
+        "WARNING: emergency_routing_rules set but emergency_definition is empty"
+      ]
+    }
+  ],
+  "pipeline_b_results": [
+    {
+      "status": "success",
+      "file": "bens_electric_onboarding.txt",
+      "account_id": "bens-electric-solutions-8f3a2c",
+      "company_name": "Ben's Electric Solutions",
+      "v2_dir": "outputs/accounts/bens-electric-solutions-8f3a2c/v2",
+      "memo_path": "outputs/accounts/bens-electric-solutions-8f3a2c/v2/memo.json",
+      "agent_spec_path": "outputs/accounts/bens-electric-solutions-8f3a2c/v2/agent_spec.json",
+      "changelog_path": "outputs/accounts/bens-electric-solutions-8f3a2c/v2/changelog.json",
+      "changes_count": 14,
+      "validation_warnings": []
+    }
+  ],
+  "summary": {
+    "pipeline_a": {
+      "success": 1,
+      "total": 1,
+      "failed": 0
+    },
+    "pipeline_b": {
+      "success": 1,
+      "total": 1,
+      "failed": 0
+    },
+    "total_processed": 2,
+    "total_success": 2
+  }
+}
